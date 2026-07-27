@@ -1,4 +1,10 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile/features/schools/bloc/school_detail_bloc.dart';
+import 'package:mobile/features/schools/data/models/school_model.dart';
+import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
+import 'package:mobile/features/schools/presentation/school_detail_screen.dart';
+import 'package:mobile/features/schools/presentation/schools_screen.dart';
 import 'package:mobile/features/splasch/presentation/splash_screen.dart';
 
 import '../../features/home/presentation/home_page.dart';
@@ -6,20 +12,44 @@ import '../../features/home/presentation/home_page.dart';
 abstract class AppRoutes {
   static const splash = '/';
   static const home = '/home';
+  static const schools = '/schools';
+  static const schoolDetails = '/schoolDetailScreen';
 }
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: AppRoutes.splash,
+  initialLocation: AppRoutes.schools,
   routes: [
+    // splash screen
     GoRoute(
       path: AppRoutes.splash,
       builder: (context, state) => const SplashScreen(),
     ),
 
+    // home screen
     GoRoute(
       path: AppRoutes.home,
       builder: (context, state) =>
           const HomePage(title: 'Flutter Demo Home Page'),
+    ),
+
+    // schools screen
+    GoRoute(
+      path: AppRoutes.schools,
+      builder: (context, state) => const SchoolsScreen(),
+    ),
+
+    // schoolsDetailScreen
+    GoRoute(
+      path: AppRoutes.schoolDetails,
+      builder: (context, state) {
+        final model = state.extra as SchoolModel;
+        return BlocProvider(
+          create: (context) => SchoolDetailBloc(
+            schoolsRepository: context.read<SchoolsRepository>(),
+          )..add(GetSchoolDetailEvent(schoolId: model.id)),
+          child: SchoolDetailScreen(schoolModel: model),
+        );
+      },
     ),
   ],
 );

@@ -21,5 +21,19 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "errorSchool": MessageLookupByLibrary.simpleMessage("Что-то пошло не так"),
+    "noSchoolsFound": MessageLookupByLibrary.simpleMessage("Okuwlar tapylmady"),
+    "noSchoolsFoundDEsc": MessageLookupByLibrary.simpleMessage(
+      "Häzirki wagta ulgama goşulan okuwlar tapylmady",
+    ),
+    "retry": MessageLookupByLibrary.simpleMessage("Повторить"),
+    "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
+    "schoolsLoadError": MessageLookupByLibrary.simpleMessage(
+      "Не удалось загрузить учебные заведения",
+    ),
+    "searchSchoolsHint": MessageLookupByLibrary.simpleMessage(
+      "Okuwlardan gözleg...",
+    ),
+  };
 }

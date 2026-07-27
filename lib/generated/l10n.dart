@@ -53,6 +53,66 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Okuwlar`
+  String get schools {
+    return Intl.message('Okuwlar', name: 'schools', desc: '', args: []);
+  }
+
+  /// `Okuwlardan gözleg...`
+  String get searchSchoolsHint {
+    return Intl.message(
+      'Okuwlardan gözleg...',
+      name: 'searchSchoolsHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Не удалось загрузить учебные заведения`
+  String get schoolsLoadError {
+    return Intl.message(
+      'Не удалось загрузить учебные заведения',
+      name: 'schoolsLoadError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Повторить`
+  String get retry {
+    return Intl.message('Повторить', name: 'retry', desc: '', args: []);
+  }
+
+  /// `Okuwlar tapylmady`
+  String get noSchoolsFound {
+    return Intl.message(
+      'Okuwlar tapylmady',
+      name: 'noSchoolsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Häzirki wagta ulgama goşulan okuwlar tapylmady`
+  String get noSchoolsFoundDEsc {
+    return Intl.message(
+      'Häzirki wagta ulgama goşulan okuwlar tapylmady',
+      name: 'noSchoolsFoundDEsc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Что-то пошло не так`
+  String get errorSchool {
+    return Intl.message(
+      'Что-то пошло не так',
+      name: 'errorSchool',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

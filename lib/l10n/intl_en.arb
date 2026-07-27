@@ -1,1 +1,9 @@
-{}
+{
+    "schools"   :   "Okuwlar",
+    "searchSchoolsHint": "Okuwlardan gözleg...",
+    "schoolsLoadError": "Не удалось загрузить учебные заведения",
+    "retry": "Повторить",
+    "noSchoolsFound": "Okuwlar tapylmady",
+    "noSchoolsFoundDEsc": "Häzirki wagta ulgama goşulan okuwlar tapylmady",
+    "errorSchool"   :   "Что-то пошло не так"
+}
