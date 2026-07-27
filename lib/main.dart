@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mobile/features/schools/bloc/schools_bloc.dart';
+import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
 
 import 'core/bloc/main_bloc.dart';
 import 'core/network/api_client.dart';
@@ -59,12 +61,24 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<PushNotificationService>.value(
           value: pushNotificationService,
         ),
+
+        // schools
+        RepositoryProvider(
+          create: (context) => SchoolsRepository(dio: apiClient.dio),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
           // main settings app
           BlocProvider<MainBloc>(
             create: (context) => MainBloc(context.read<SettingsStorage>()),
+          ),
+
+          // schools
+          BlocProvider(
+            create: (context) => SchoolsBloc(
+              schoolsRepository: context.read<SchoolsRepository>(),
+            ),
           ),
         ],
         child: BlocBuilder<MainBloc, MainState>(
