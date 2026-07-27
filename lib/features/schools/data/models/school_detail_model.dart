@@ -1,6 +1,7 @@
 import 'dart:ui' show Locale;
 
 import 'package:equatable/equatable.dart';
+import 'package:mobile/core/utils/models/media_model.dart';
 
 final class SchoolDetailCityModel extends Equatable {
   final int id;
@@ -86,7 +87,7 @@ final class SchoolGalleryItemModel extends Equatable {
   final int id;
   final int schoolId;
   final int mediaId;
-  // final SchoolDetailMediaModel? media;
+  final MediaDetailModel? media;
   final int sortOrder;
   final DateTime? createdAt;
 
@@ -94,7 +95,7 @@ final class SchoolGalleryItemModel extends Equatable {
     required this.id,
     required this.schoolId,
     required this.mediaId,
-    // this.media,
+    this.media,
     this.sortOrder = 0,
     this.createdAt,
   });
@@ -104,11 +105,9 @@ final class SchoolGalleryItemModel extends Equatable {
       id: json['id'] as int,
       schoolId: json['school_id'] as int,
       mediaId: json['media_id'] as int,
-      // media: json['media'] != null
-      //     ? SchoolDetailMediaModel.fromJson(
-      //         json['media'] as Map<String, dynamic>,
-      //       )
-      //     : null,
+      media: json['media'] != null
+          ? MediaDetailModel.fromJson(json['media'] as Map<String, dynamic>)
+          : null,
       sortOrder: json['sort_order'] as int? ?? 0,
       createdAt: json['created_at'] != null
           ? DateTime.parse(json['created_at'] as String)
@@ -121,7 +120,7 @@ final class SchoolGalleryItemModel extends Equatable {
     id,
     schoolId,
     mediaId,
-    // media,
+    media,
     sortOrder,
     createdAt,
   ];
@@ -215,7 +214,7 @@ final class KafedraModel extends Equatable {
   final String nameRu;
   final String? nameEn;
   final int? thumbnailMediaId;
-  // final SchoolDetailMediaModel? thumbnailMedia;
+  final MediaDetailModel? thumbnailMedia;
   final bool isActive;
   final DateTime? createdAt;
   final DateTime? updatedAt;
@@ -226,7 +225,7 @@ final class KafedraModel extends Equatable {
     required this.nameRu,
     this.nameEn,
     this.thumbnailMediaId,
-    // this.thumbnailMedia,
+    this.thumbnailMedia,
     this.isActive = true,
     this.createdAt,
     this.updatedAt,
@@ -239,11 +238,11 @@ final class KafedraModel extends Equatable {
       nameRu: json['name_ru'] as String? ?? '',
       nameEn: json['name_en'] as String?,
       thumbnailMediaId: json['thumbnail_media_id'] as int?,
-      // thumbnailMedia: json['thumbnail_media'] != null
-      //     ? SchoolDetailMediaModel.fromJson(
-      //         json['thumbnail_media'] as Map<String, dynamic>,
-      //       )
-      //     : null,
+      thumbnailMedia: json['thumbnail_media'] != null
+          ? MediaDetailModel.fromJson(
+              json['thumbnail_media'] as Map<String, dynamic>,
+            )
+          : null,
       isActive: json['is_active'] as bool? ?? true,
       createdAt: json['created_at'] != null
           ? DateTime.parse(json['created_at'] as String)
@@ -261,7 +260,7 @@ final class KafedraModel extends Equatable {
     nameRu,
     nameEn,
     thumbnailMediaId,
-    // thumbnailMedia,
+    thumbnailMedia,
     isActive,
     createdAt,
     updatedAt,
@@ -337,7 +336,7 @@ final class SchoolDetailModel extends Equatable {
   final String? descriptionRu;
   final String? descriptionEn;
   final int? thumbnailMediaId;
-  // final SchoolDetailMediaModel? thumbnailMedia;
+  final MediaDetailModel? thumbnailMedia;
   final double? latitude;
   final double? longitude;
   final int? cityId;
@@ -363,7 +362,7 @@ final class SchoolDetailModel extends Equatable {
     this.descriptionRu,
     this.descriptionEn,
     this.thumbnailMediaId,
-    // this.thumbnailMedia,
+    this.thumbnailMedia,
     this.latitude,
     this.longitude,
     this.cityId,
@@ -391,11 +390,11 @@ final class SchoolDetailModel extends Equatable {
       descriptionRu: json['description_ru'] as String?,
       descriptionEn: json['description_en'] as String?,
       thumbnailMediaId: json['thumbnail_media_id'] as int?,
-      // thumbnailMedia: json['thumbnail_media'] != null
-      //     ? SchoolDetailMediaModel.fromJson(
-      //         json['thumbnail_media'] as Map<String, dynamic>,
-      //       )
-      //     : null,
+      thumbnailMedia: json['thumbnail_media'] != null
+          ? MediaDetailModel.fromJson(
+              json['thumbnail_media'] as Map<String, dynamic>,
+            )
+          : null,
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
       cityId: json['city_id'] as int?,
@@ -438,7 +437,7 @@ final class SchoolDetailModel extends Equatable {
     descriptionRu,
     descriptionEn,
     thumbnailMediaId,
-    // thumbnailMedia,
+    thumbnailMedia,
     latitude,
     longitude,
     cityId,

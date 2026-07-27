@@ -15,7 +15,8 @@ class SchoolDetailScreen extends StatelessWidget {
     return Scaffold(
       body: BlocBuilder<SchoolDetailBloc, SchoolDetailState>(
         builder: (context, state) {
-          if (state is GetSchoolDetailProgress || state is SchoolDetailInitial) {
+          if (state is GetSchoolDetailProgress ||
+              state is SchoolDetailInitial) {
             return const Center(child: CircularProgressIndicator());
           }
 
@@ -30,6 +31,12 @@ class SchoolDetailScreen extends StatelessWidget {
               title: S.of(context).schoolsLoadError,
             );
           }
+          // detail syccess UI
+          if (state is GetSchoolDetailSuccess) {
+            final shopDetail = state.schoolDetailModel;
+            return Center(child: Text('data'));
+          }
+
           return Text(state.toString());
         },
       ),
