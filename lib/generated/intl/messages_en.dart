@@ -22,7 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "AppName": MessageLookupByLibrary.simpleMessage("Çäksiz Hyzmat"),
     "errorSchool": MessageLookupByLibrary.simpleMessage("Что-то пошло не так"),
+    "netije_bizden": MessageLookupByLibrary.simpleMessage("Netije Bizden"),
     "noSchoolsFound": MessageLookupByLibrary.simpleMessage("Okuwlar tapylmady"),
     "noSchoolsFoundDEsc": MessageLookupByLibrary.simpleMessage(
       "Häzirki wagta ulgama goşulan okuwlar tapylmady",
@@ -35,5 +37,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchSchoolsHint": MessageLookupByLibrary.simpleMessage(
       "Okuwlardan gözleg...",
     ),
+    "ynam_sizden": MessageLookupByLibrary.simpleMessage("Ynam Sizden"),
   };
 }

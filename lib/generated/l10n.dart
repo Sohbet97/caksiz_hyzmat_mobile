@@ -54,6 +54,26 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Çäksiz Hyzmat`
+  String get AppName {
+    return Intl.message('Çäksiz Hyzmat', name: 'AppName', desc: '', args: []);
+  }
+
+  /// `Ynam Sizden`
+  String get ynam_sizden {
+    return Intl.message('Ynam Sizden', name: 'ynam_sizden', desc: '', args: []);
+  }
+
+  /// `Netije Bizden`
+  String get netije_bizden {
+    return Intl.message(
+      'Netije Bizden',
+      name: 'netije_bizden',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Okuwlar`
   String get schools {
     return Intl.message('Okuwlar', name: 'schools', desc: '', args: []);

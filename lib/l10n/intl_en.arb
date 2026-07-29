@@ -1,4 +1,7 @@
 {
+    "AppName"   :   "Çäksiz Hyzmat",
+        "ynam_sizden": "Ynam Sizden",
+    "netije_bizden": "Netije Bizden",
     "schools"   :   "Okuwlar",
     "searchSchoolsHint": "Okuwlardan gözleg...",
     "schoolsLoadError": "Не удалось загрузить учебные заведения",

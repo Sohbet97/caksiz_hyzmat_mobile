@@ -17,7 +17,7 @@ abstract class AppRoutes {
 }
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: AppRoutes.schools,
+  initialLocation: AppRoutes.splash,
   routes: [
     // splash screen
     GoRoute(
