@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mobile/features/home/bloc/bottom_navigation_bloc.dart';
 import 'package:mobile/features/schools/bloc/schools_bloc.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
 
@@ -80,6 +81,9 @@ class MyApp extends StatelessWidget {
               schoolsRepository: context.read<SchoolsRepository>(),
             ),
           ),
+
+          // bottom navigation visible / invisible
+          BlocProvider(create: (context) => BottomNavigationBloc()),
         ],
         child: BlocBuilder<MainBloc, MainState>(
           builder: (context, state) {
