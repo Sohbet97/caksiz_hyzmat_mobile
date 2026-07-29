@@ -2,5 +2,8 @@
     "home": "Esasy",
     "category": "Kategoriýa",
     "person": "Profil",
-    "korzina": "Sebet"
+    "korzina": "Sebet",
+    "categoriesEmpty"   :   "Kategoriýalar ýok",
+    "categoryEmptyDesc" :   "Похоже, здесь пока пусто. Попробуйте обновить страницу позже",
+    "retry" :   "Täzelemek"
 }

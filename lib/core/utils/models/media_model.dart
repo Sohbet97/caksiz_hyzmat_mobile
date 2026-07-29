@@ -1,4 +1,7 @@
-final class MediaDetailModel {
+import 'package:equatable/equatable.dart';
+import 'package:mobile/core/network/api_client.dart';
+
+final class MediaDetailModel extends Equatable {
   final int id;
   final String? entityType;
   final int? entityId;
@@ -67,5 +70,58 @@ final class MediaDetailModel {
           ? DateTime.parse(json['updated_at'] as String)
           : null,
     );
+  }
+
+  String get fullUrl {
+    if (url.startsWith('http://') || url.startsWith('https://')) return url;
+    final origin = ApiClient.baseUrl.replaceFirst(RegExp(r'/api/?$'), '');
+    return '$origin$url';
+  }
+
+  @override
+  List<Object?> get props => [
+    id,
+    entityType,
+    entityId,
+    mediaType,
+    collectionName,
+    fileName,
+    originalName,
+    filePath,
+    url,
+    mimeType,
+    sizeBytes,
+    width,
+    height,
+    durationSec,
+    thumbnailUrl,
+    altText,
+    sortOrder,
+    createdAt,
+    updatedAt,
+  ];
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'entity_type': entityType,
+      'entity_id': entityId,
+      'media_type': mediaType,
+      'collection_name': collectionName,
+      'file_name': fileName,
+      'original_name': originalName,
+      'file_path': filePath,
+      'url': url,
+      'mime_type': mimeType,
+      'size_bytes': sizeBytes,
+      'width': width,
+      'height': height,
+      'duration_sec': durationSec,
+      'thumbnail_url': thumbnailUrl,
+      'alt_text': altText,
+      'sort_order': sortOrder,
+      'created_at': createdAt?.toIso8601String(),
+      'updated_at': updatedAt?.toIso8601String(),
+    };
   }
 }

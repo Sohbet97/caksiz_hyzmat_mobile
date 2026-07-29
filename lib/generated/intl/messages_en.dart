@@ -22,9 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "categoriesEmpty": MessageLookupByLibrary.simpleMessage(
+      "Kategoriýalar ýok",
+    ),
     "category": MessageLookupByLibrary.simpleMessage("Kategoriýa"),
+    "categoryEmptyDesc": MessageLookupByLibrary.simpleMessage(
+      "Похоже, здесь пока пусто. Попробуйте обновить страницу позже",
+    ),
     "home": MessageLookupByLibrary.simpleMessage("Esasy"),
     "korzina": MessageLookupByLibrary.simpleMessage("Sebet"),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),
+    "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
   };
 }
