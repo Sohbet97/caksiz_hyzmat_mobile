@@ -6,15 +6,16 @@ class CategoryRepository {
 
   CategoryRepository({required this.dio});
 
+  List<CategoryModel>? _cats;
+
   Future<List<CategoryModel>> loadAllCategories() async {
+    if (_cats != null) return _cats!;
     try {
-      final response = await dio.get(
-        'categories',
-        queryParameters: {'limit': 100, 'page': 1},
-      );
+      final response = await dio.get('categories/tree');
       final categories = (response.data['data'] as List)
           .map((item) => CategoryModel.fromJson(item))
           .toList();
+      _cats = categories;
       return categories;
     } catch (e) {
       throw Exception(e);

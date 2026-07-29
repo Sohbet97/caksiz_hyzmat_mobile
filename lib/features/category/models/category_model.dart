@@ -29,7 +29,7 @@ class CategoryModel extends Equatable {
     required this.createdAt,
     this.updatedAt,
     this.media,
-    this.children = const [],
+    required this.children,
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
@@ -50,6 +50,9 @@ class CategoryModel extends Equatable {
       media: json['media'] != null
           ? MediaDetailModel.fromJson(json['media'] as Map<String, dynamic>)
           : null,
+      children: (json['children'] as List)
+          .map((item) => CategoryModel.fromJson(item))
+          .toList(),
     );
   }
 

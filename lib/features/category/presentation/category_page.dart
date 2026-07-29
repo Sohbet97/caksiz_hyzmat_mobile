@@ -80,7 +80,7 @@ class _CategoryPageState extends State<CategoryPage> {
             return const Center(child: CircularProgressIndicator());
           }
 
-          final roots = state.treeList;
+          final roots = state.categories;
           if (roots.isEmpty) {
             return CategoryEmptyView(
               onRefresh: () =>

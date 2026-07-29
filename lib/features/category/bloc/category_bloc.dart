@@ -21,8 +21,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     emit(CategoryLoading());
     try {
       final categories = await categoryRepository.loadAllCategories();
-      final treeList = await categoryRepository.buildTreeList(categories);
-      emit(CategoryLoaded(categories: categories, treeList: treeList));
+      emit(CategoryLoaded(categories: categories));
     } catch (e) {
       emit(CategoryError(message: e.toString()));
     }

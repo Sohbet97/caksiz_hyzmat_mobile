@@ -14,12 +14,11 @@ final class CategoryLoading extends CategoryState {}
 
 final class CategoryLoaded extends CategoryState {
   final List<CategoryModel> categories;
-  final List<CategoryModel> treeList;
 
-  const CategoryLoaded({required this.categories, required this.treeList});
+  const CategoryLoaded({required this.categories});
 
   @override
-  List<Object?> get props => [categories, treeList];
+  List<Object?> get props => [categories];
 }
 
 final class CategoryError extends CategoryState {
