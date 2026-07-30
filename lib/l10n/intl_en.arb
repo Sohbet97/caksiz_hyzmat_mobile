@@ -1,6 +1,37 @@
-{
-    "home": "Esasy",
-    "category": "Kategoriýa",
-    "person": "Profil",
-    "korzina": "Sebet"
-}
+    {
+        "home": "Esasy",
+        "category": "Kategoriýa",
+        "person": "Profil",
+        "korzina": "Sebet",
+        "personLoginTitle": "Iň gowy tejribe üçin içeri giriň",
+        "personLoginButton": "Içeri giriň / Agza Boluň",
+        "personOrders": "Sargytlarym",
+        "personMessages": "Habarlar",
+        "personCoupons": "Kuponlar we Teklipler",
+        "personBalance": "Kredit balansy",
+        "personSettings": "Sazlamalar",
+        "personSupport": "Goldaw",
+        "personReviews": "Synlar",
+        "personHistory": "Geçmiş",
+        "personAddresses": "Salgylar",
+        "personFollowing": "Yzarlanýanlar",
+        "personFreeShipping": "Mugt eltip bermek",
+        "personFreeReturn": "Mugt yzyna gaýtarmak",
+        "personFreeReturnDesc": "90 güne çenli",
+        "personFreeShippingDesc": "Ynanylmaz",
+
+        "settingsTitle": "Sazlamalar",
+        "settingsLogin": "Içeri gir / Agza bol",
+        "settingsCountryRegion": "Ýurt we sebit",
+        "settingsLanguage": "Dil",
+        "settingsCurrency": "Pul birligi",
+        "settingsNotifications": "Bildirişler",
+        "settingsPrivacy": "Gizlinlik",
+        "settingsPermissions": "Rugsatlar",
+        "settingsSecurityCenter": "Howpsuzlyk merkezi",
+        "settingsAboutApp": "Bu programma barada",
+        "settingsContactUs": "Biz bilen habarlaşyň",
+        "settingsContact": "Aragatnaşyk",
+        "settingsLegal": "Hukuk şertleri we syýasatlar",
+        "settingsShareApp": "Bu programmany paýlaş"
+    }

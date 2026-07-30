@@ -26,5 +26,63 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("Esasy"),
     "korzina": MessageLookupByLibrary.simpleMessage("Sebet"),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),
+    "personAddresses": MessageLookupByLibrary.simpleMessage("Salgylar"),
+    "personBalance": MessageLookupByLibrary.simpleMessage("Kredit balansy"),
+    "personCoupons": MessageLookupByLibrary.simpleMessage(
+      "Kuponlar we Teklipler",
+    ),
+    "personFollowing": MessageLookupByLibrary.simpleMessage("Yzarlanýanlar"),
+    "personFreeReturn": MessageLookupByLibrary.simpleMessage(
+      "Mugt yzyna gaýtarmak",
+    ),
+    "personFreeReturnDesc": MessageLookupByLibrary.simpleMessage(
+      "90 güne çenli",
+    ),
+    "personFreeShipping": MessageLookupByLibrary.simpleMessage(
+      "Mugt eltip bermek",
+    ),
+    "personFreeShippingDesc": MessageLookupByLibrary.simpleMessage("Ynanylmaz"),
+    "personHistory": MessageLookupByLibrary.simpleMessage("Geçmiş"),
+    "personLoginButton": MessageLookupByLibrary.simpleMessage(
+      "Içeri giriň / Agza Boluň",
+    ),
+    "personLoginTitle": MessageLookupByLibrary.simpleMessage(
+      "Iň gowy tejribe üçin içeri giriň",
+    ),
+    "personMessages": MessageLookupByLibrary.simpleMessage("Habarlar"),
+    "personOrders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
+    "personReviews": MessageLookupByLibrary.simpleMessage("Synlar"),
+    "personSettings": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
+    "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
+    "settingsAboutApp": MessageLookupByLibrary.simpleMessage(
+      "Bu programma barada",
+    ),
+    "settingsContact": MessageLookupByLibrary.simpleMessage("Aragatnaşyk"),
+    "settingsContactUs": MessageLookupByLibrary.simpleMessage(
+      "Biz bilen habarlaşyň",
+    ),
+    "settingsCountryRegion": MessageLookupByLibrary.simpleMessage(
+      "Ýurt we sebit",
+    ),
+    "settingsCurrency": MessageLookupByLibrary.simpleMessage("Pul birligi"),
+    "settingsLanguage": MessageLookupByLibrary.simpleMessage("Dil"),
+    "settingsLegal": MessageLookupByLibrary.simpleMessage(
+      "Hukuk şertleri we syýasatlar",
+    ),
+    "settingsLogin": MessageLookupByLibrary.simpleMessage(
+      "Içeri gir / Agza bol",
+    ),
+    "settingsNotifications": MessageLookupByLibrary.simpleMessage(
+      "Bildirişler",
+    ),
+    "settingsPermissions": MessageLookupByLibrary.simpleMessage("Rugsatlar"),
+    "settingsPrivacy": MessageLookupByLibrary.simpleMessage("Gizlinlik"),
+    "settingsSecurityCenter": MessageLookupByLibrary.simpleMessage(
+      "Howpsuzlyk merkezi",
+    ),
+    "settingsShareApp": MessageLookupByLibrary.simpleMessage(
+      "Bu programmany paýlaş",
+    ),
+    "settingsTitle": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
   };
 }
