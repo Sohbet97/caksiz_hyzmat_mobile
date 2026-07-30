@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobile/core/bloc/main_bloc.dart';
+import 'package:mobile/core/router/app_router.dart';
 import 'package:mobile/features/category/bloc/category_bloc.dart';
 import 'package:mobile/features/category/models/category_model.dart';
 import 'package:mobile/features/category/presentation/widgets/category_breadcrumb.dart';
@@ -45,7 +47,10 @@ class _CategoryPageState extends State<CategoryPage> {
   }
 
   void _onTapSubcategory(CategoryModel category) {
-    if (category.children.isEmpty) return;
+    if (category.children.isEmpty) {
+      context.push(AppRoutes.categoryDetail, extra: category);
+      return;
+    }
     setState(() => _drillPath.add(category));
   }
 
