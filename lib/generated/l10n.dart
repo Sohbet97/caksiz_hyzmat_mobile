@@ -73,6 +73,31 @@ class S {
   String get korzina {
     return Intl.message('Sebet', name: 'korzina', desc: '', args: []);
   }
+
+  /// `Kategoriýalar ýok`
+  String get categoriesEmpty {
+    return Intl.message(
+      'Kategoriýalar ýok',
+      name: 'categoriesEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Похоже, здесь пока пусто. Попробуйте обновить страницу позже`
+  String get categoryEmptyDesc {
+    return Intl.message(
+      'Похоже, здесь пока пусто. Попробуйте обновить страницу позже',
+      name: 'categoryEmptyDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Täzelemek`
+  String get retry {
+    return Intl.message('Täzelemek', name: 'retry', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

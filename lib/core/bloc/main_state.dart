@@ -3,7 +3,7 @@ part of 'main_bloc.dart';
 @immutable
 class MainState {
   const MainState({
-    this.themeMode = ThemeMode.system,
+    this.themeMode = ThemeMode.light,
     this.locale = const Locale('en'),
     this.navigationIndex = 0,
     this.isLoading = true,

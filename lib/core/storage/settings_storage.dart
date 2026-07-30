@@ -14,7 +14,7 @@ class SettingsStorage {
     final value = prefs.getString(_themeModeKey);
     return ThemeMode.values.firstWhere(
       (mode) => mode.name == value,
-      orElse: () => ThemeMode.system,
+      orElse: () => ThemeMode.light,
     );
   }
 

@@ -119,6 +119,10 @@ class ApiClient {
 
   // TODO: заменить путь и тело запроса на реальный контракт бэкенда.
   Future<void> registerPushToken(String token) async {
-    await dio.post('/push-tokens', data: {'token': token});
+    try {
+      await dio.post('/push-tokens', data: {'token': token});
+    } catch (e) {
+      print(e);
+    }
   }
 }
