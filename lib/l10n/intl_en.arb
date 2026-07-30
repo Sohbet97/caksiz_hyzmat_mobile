@@ -5,5 +5,11 @@
     "korzina": "Sebet",
     "categoriesEmpty"   :   "Kategoriýalar ýok",
     "categoryEmptyDesc" :   "Похоже, здесь пока пусто. Попробуйте обновить страницу позже",
-    "retry" :   "Täzelemek"
+    "retry" :   "Täzelemek",
+    "all"   :   "Ählisi",
+    "search"    :   "Haryt gözleg",
+    "skidki"    :   "Arzalnaşyklar",
+    "news_added"    :   "Täze goşulanlar",
+    "mugt_dostawkalar"    :   "Mugt dostawkalar",
+    "gunun_arzanlasygy"    :   "Günüň arzanlaşygy"
 }

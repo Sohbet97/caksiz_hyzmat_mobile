@@ -98,6 +98,51 @@ class S {
   String get retry {
     return Intl.message('Täzelemek', name: 'retry', desc: '', args: []);
   }
+
+  /// `Ählisi`
+  String get all {
+    return Intl.message('Ählisi', name: 'all', desc: '', args: []);
+  }
+
+  /// `Haryt gözleg`
+  String get search {
+    return Intl.message('Haryt gözleg', name: 'search', desc: '', args: []);
+  }
+
+  /// `Arzalnaşyklar`
+  String get skidki {
+    return Intl.message('Arzalnaşyklar', name: 'skidki', desc: '', args: []);
+  }
+
+  /// `Täze goşulanlar`
+  String get news_added {
+    return Intl.message(
+      'Täze goşulanlar',
+      name: 'news_added',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mugt dostawkalar`
+  String get mugt_dostawkalar {
+    return Intl.message(
+      'Mugt dostawkalar',
+      name: 'mugt_dostawkalar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Günüň arzanlaşygy`
+  String get gunun_arzanlasygy {
+    return Intl.message(
+      'Günüň arzanlaşygy',
+      name: 'gunun_arzanlasygy',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
