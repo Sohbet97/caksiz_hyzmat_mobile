@@ -109,20 +109,20 @@ class S {
     return Intl.message('Habarlar', name: 'personMessages', desc: '', args: []);
   }
 
-  /// `Kuponlar we Teklipler`
+  /// `Halanlarym`
   String get personCoupons {
     return Intl.message(
-      'Kuponlar we Teklipler',
+      'Halanlarym',
       name: 'personCoupons',
       desc: '',
       args: [],
     );
   }
 
-  /// `Kredit balansy`
+  /// `Kuponlarym`
   String get personBalance {
     return Intl.message(
-      'Kredit balansy',
+      'Kuponlarym',
       name: 'personBalance',
       desc: '',
       args: [],
@@ -144,14 +144,19 @@ class S {
     return Intl.message('Goldaw', name: 'personSupport', desc: '', args: []);
   }
 
-  /// `Synlar`
+  /// `Okuwlar`
   String get personReviews {
-    return Intl.message('Synlar', name: 'personReviews', desc: '', args: []);
+    return Intl.message('Okuwlar', name: 'personReviews', desc: '', args: []);
   }
 
-  /// `Geçmiş`
+  /// `Görenlerim`
   String get personHistory {
-    return Intl.message('Geçmiş', name: 'personHistory', desc: '', args: []);
+    return Intl.message(
+      'Görenlerim',
+      name: 'personHistory',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Salgylar`
@@ -212,6 +217,11 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Kargo`
+  String get personKargo {
+    return Intl.message('Kargo', name: 'personKargo', desc: '', args: []);
   }
 
   /// `Sazlamalar`
@@ -344,6 +354,111 @@ class S {
     return Intl.message(
       'Bu programmany paýlaş',
       name: 'settingsShareApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ÇÄKSIZ HYZMATLAR`
+  String get authTitle {
+    return Intl.message(
+      'ÇÄKSIZ HYZMATLAR',
+      name: 'authTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ähli maglumatlaryňyz goralýar`
+  String get authSecureNote {
+    return Intl.message(
+      'Ähli maglumatlaryňyz goralýar',
+      name: 'authSecureNote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Google bilen dowam et`
+  String get authGoogleContinue {
+    return Intl.message(
+      'Google bilen dowam et',
+      name: 'authGoogleContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `E-poçta bilen dowam et`
+  String get authEmailContinue {
+    return Intl.message(
+      'E-poçta bilen dowam et',
+      name: 'authEmailContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Telefon belgisi bilen dowam et`
+  String get authPhoneContinue {
+    return Intl.message(
+      'Telefon belgisi bilen dowam et',
+      name: 'authPhoneContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Içeri girmekde kynçylyk çekýärsiňizmi?`
+  String get authTroubleLogin {
+    return Intl.message(
+      'Içeri girmekde kynçylyk çekýärsiňizmi?',
+      name: 'authTroubleLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dowam etmek bilen`
+  String get authTermsPrefix {
+    return Intl.message(
+      'Dowam etmek bilen',
+      name: 'authTermsPrefix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ulanyş şertlerini`
+  String get authTermsOfUse {
+    return Intl.message(
+      'Ulanyş şertlerini',
+      name: 'authTermsOfUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `we`
+  String get authAnd {
+    return Intl.message('we', name: 'authAnd', desc: '', args: []);
+  }
+
+  /// `Gizlinlik syýasatyny`
+  String get authPrivacyPolicy {
+    return Intl.message(
+      'Gizlinlik syýasatyny',
+      name: 'authPrivacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `okandygyňyzy tassyklaýarsyňyz.`
+  String get authTermsSuffix {
+    return Intl.message(
+      'okandygyňyzy tassyklaýarsyňyz.',
+      name: 'authTermsSuffix',
       desc: '',
       args: [],
     );

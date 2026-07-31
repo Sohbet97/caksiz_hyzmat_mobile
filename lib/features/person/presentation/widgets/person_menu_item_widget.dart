@@ -5,12 +5,12 @@ import '../../../../core/theme/app_colors.dart';
 class PersonMenuItemWidget extends StatelessWidget {
   const PersonMenuItemWidget({
     super.key,
-    required this.icon,
+    required this.iconAsset,
     required this.title,
     required this.onTap,
   });
 
-  final IconData icon;
+  final String iconAsset;
   final String title;
   final VoidCallback onTap;
 
@@ -25,7 +25,11 @@ class PersonMenuItemWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Row(
           children: [
-            Icon(icon, size: 22, color: colors.textPrimary),
+            SizedBox(
+              width: 24,
+              height: 24,
+              child: Image.asset(iconAsset, fit: BoxFit.contain),
+            ),
             const SizedBox(width: 16),
             Expanded(
               child: Text(

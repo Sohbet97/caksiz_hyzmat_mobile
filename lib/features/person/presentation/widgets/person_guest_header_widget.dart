@@ -3,15 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../generated/l10n.dart';
 
-class PersonLoginBannerWidget extends StatelessWidget {
-  const PersonLoginBannerWidget({
-    super.key,
-    required this.onLoginTap,
-    this.middleContent,
-  });
+class PersonGuestHeaderWidget extends StatelessWidget {
+  const PersonGuestHeaderWidget({super.key, required this.onLoginTap});
 
   final VoidCallback onLoginTap;
-  final Widget? middleContent;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +21,6 @@ class PersonLoginBannerWidget extends StatelessWidget {
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        if (middleContent != null) ...[
-          const SizedBox(height: 20),
-          middleContent!,
-        ],
         const SizedBox(height: 24),
         SizedBox(
           height: 52,

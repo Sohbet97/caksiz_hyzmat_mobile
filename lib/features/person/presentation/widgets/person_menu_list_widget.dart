@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/router/app_router.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../generated/l10n.dart';
 import 'person_menu_item_widget.dart';
@@ -17,27 +19,27 @@ class PersonMenuListWidget extends StatelessWidget {
       child: Column(
         children: [
           PersonMenuItemWidget(
-            icon: Icons.receipt_long_outlined,
+            iconAsset: 'assets/images/cart.gif',
             title: localization.personOrders,
-            onTap: () {},
+            onTap: () => context.push(AppRoutes.orders),
           ),
           Divider(height: 1, color: colors.divider, indent: 20, endIndent: 20),
           PersonMenuItemWidget(
-            icon: Icons.chat_bubble_outline,
+            iconAsset: 'assets/images/email.gif',
             title: localization.personMessages,
-            onTap: () {},
+            onTap: () => context.push(AppRoutes.messages),
           ),
           Divider(height: 1, color: colors.divider, indent: 20, endIndent: 20),
           PersonMenuItemWidget(
-            icon: Icons.confirmation_number_outlined,
+            iconAsset: 'assets/images/favorite.gif',
             title: localization.personCoupons,
-            onTap: () {},
+            onTap: () => context.push(AppRoutes.favorites),
           ),
           Divider(height: 1, color: colors.divider, indent: 20, endIndent: 20),
           PersonMenuItemWidget(
-            icon: Icons.account_balance_wallet_outlined,
+            iconAsset: 'assets/images/coin.gif',
             title: localization.personBalance,
-            onTap: () {},
+            onTap: () => context.push(AppRoutes.coupons),
           ),
         ],
       ),

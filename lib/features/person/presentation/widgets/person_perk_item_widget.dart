@@ -5,12 +5,14 @@ import '../../../../core/theme/app_colors.dart';
 class PersonPerkItemWidget extends StatelessWidget {
   const PersonPerkItemWidget({
     super.key,
-    required this.icon,
+    this.icon,
+    this.iconAsset,
     required this.title,
     required this.description,
   });
 
-  final IconData icon;
+  final IconData? icon;
+  final String? iconAsset;
   final String title;
   final String description;
 
@@ -26,10 +28,15 @@ class PersonPerkItemWidget extends StatelessWidget {
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            color: colors.primaryLight.withOpacity(0.15),
+            color: colors.primaryLight.withOpacity(0.12),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, size: 22, color: colors.primary),
+          child: iconAsset != null
+              ? Padding(
+                  padding: const EdgeInsets.all(11),
+                  child: Image.asset(iconAsset!),
+                )
+              : Icon(icon, size: 22, color: colors.primaryLight),
         ),
         const SizedBox(height: 6),
         Text(

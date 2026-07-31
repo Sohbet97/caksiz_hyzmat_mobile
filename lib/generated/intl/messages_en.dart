@@ -22,15 +22,40 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "authAnd": MessageLookupByLibrary.simpleMessage("we"),
+    "authEmailContinue": MessageLookupByLibrary.simpleMessage(
+      "E-poçta bilen dowam et",
+    ),
+    "authGoogleContinue": MessageLookupByLibrary.simpleMessage(
+      "Google bilen dowam et",
+    ),
+    "authPhoneContinue": MessageLookupByLibrary.simpleMessage(
+      "Telefon belgisi bilen dowam et",
+    ),
+    "authPrivacyPolicy": MessageLookupByLibrary.simpleMessage(
+      "Gizlinlik syýasatyny",
+    ),
+    "authSecureNote": MessageLookupByLibrary.simpleMessage(
+      "Ähli maglumatlaryňyz goralýar",
+    ),
+    "authTermsOfUse": MessageLookupByLibrary.simpleMessage("Ulanyş şertlerini"),
+    "authTermsPrefix": MessageLookupByLibrary.simpleMessage(
+      "Dowam etmek bilen",
+    ),
+    "authTermsSuffix": MessageLookupByLibrary.simpleMessage(
+      "okandygyňyzy tassyklaýarsyňyz.",
+    ),
+    "authTitle": MessageLookupByLibrary.simpleMessage("ÇÄKSIZ HYZMATLAR"),
+    "authTroubleLogin": MessageLookupByLibrary.simpleMessage(
+      "Içeri girmekde kynçylyk çekýärsiňizmi?",
+    ),
     "category": MessageLookupByLibrary.simpleMessage("Kategoriýa"),
     "home": MessageLookupByLibrary.simpleMessage("Esasy"),
     "korzina": MessageLookupByLibrary.simpleMessage("Sebet"),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),
     "personAddresses": MessageLookupByLibrary.simpleMessage("Salgylar"),
-    "personBalance": MessageLookupByLibrary.simpleMessage("Kredit balansy"),
-    "personCoupons": MessageLookupByLibrary.simpleMessage(
-      "Kuponlar we Teklipler",
-    ),
+    "personBalance": MessageLookupByLibrary.simpleMessage("Kuponlarym"),
+    "personCoupons": MessageLookupByLibrary.simpleMessage("Halanlarym"),
     "personFollowing": MessageLookupByLibrary.simpleMessage("Yzarlanýanlar"),
     "personFreeReturn": MessageLookupByLibrary.simpleMessage(
       "Mugt yzyna gaýtarmak",
@@ -42,7 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Mugt eltip bermek",
     ),
     "personFreeShippingDesc": MessageLookupByLibrary.simpleMessage("Ynanylmaz"),
-    "personHistory": MessageLookupByLibrary.simpleMessage("Geçmiş"),
+    "personHistory": MessageLookupByLibrary.simpleMessage("Görenlerim"),
+    "personKargo": MessageLookupByLibrary.simpleMessage("Kargo"),
     "personLoginButton": MessageLookupByLibrary.simpleMessage(
       "Içeri giriň / Agza Boluň",
     ),
@@ -51,7 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "personMessages": MessageLookupByLibrary.simpleMessage("Habarlar"),
     "personOrders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
-    "personReviews": MessageLookupByLibrary.simpleMessage("Synlar"),
+    "personReviews": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "personSettings": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
     "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
     "settingsAboutApp": MessageLookupByLibrary.simpleMessage(

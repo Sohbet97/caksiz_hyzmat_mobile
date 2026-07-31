@@ -5,12 +5,12 @@ import '../../../../core/theme/app_colors.dart';
 class PersonGridItemWidget extends StatelessWidget {
   const PersonGridItemWidget({
     super.key,
-    required this.icon,
+    required this.iconAsset,
     required this.title,
     required this.onTap,
   });
 
-  final IconData icon;
+  final String iconAsset;
   final String title;
   final VoidCallback onTap;
 
@@ -24,7 +24,11 @@ class PersonGridItemWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 26, color: colors.textPrimary),
+          SizedBox(
+            width: 28,
+            height: 28,
+            child: Image.asset(iconAsset, fit: BoxFit.contain),
+          ),
           const SizedBox(height: 8),
           Text(
             title,
