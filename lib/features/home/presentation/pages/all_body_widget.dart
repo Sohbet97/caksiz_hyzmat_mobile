@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/features/home/presentation/widgets/home_menu_widget.dart';
 
 class AllBodyWidget extends StatefulWidget {
   const AllBodyWidget({super.key});
@@ -10,11 +11,11 @@ class AllBodyWidget extends StatefulWidget {
 class _AllBodyWidgetState extends State<AllBodyWidget> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 50,
-      itemBuilder: (BuildContext context, int index) {
-        return ListTile(title: Text(index.toString()));
-      },
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(child: SizedBox(height: 8)),
+        const HomeMenuWidget(),
+      ],
     );
   }
 }

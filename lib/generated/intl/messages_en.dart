@@ -22,7 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "aksiyalar": MessageLookupByLibrary.simpleMessage("Aksiýalar"),
     "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
+    "brands": MessageLookupByLibrary.simpleMessage("Brendler"),
+    "cargo": MessageLookupByLibrary.simpleMessage("Kargo"),
     "categoriesEmpty": MessageLookupByLibrary.simpleMessage(
       "Kategoriýalar ýok",
     ),
@@ -30,18 +33,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "categoryEmptyDesc": MessageLookupByLibrary.simpleMessage(
       "Похоже, здесь пока пусто. Попробуйте обновить страницу позже",
     ),
+    "favorites": MessageLookupByLibrary.simpleMessage("Halanlarym"),
     "gunun_arzanlasygy": MessageLookupByLibrary.simpleMessage(
       "Günüň arzanlaşygy",
     ),
     "home": MessageLookupByLibrary.simpleMessage("Esasy"),
     "korzina": MessageLookupByLibrary.simpleMessage("Sebet"),
+    "maslahat_berilyanler": MessageLookupByLibrary.simpleMessage(
+      "Maslahat berilýänler",
+    ),
     "mugt_dostawkalar": MessageLookupByLibrary.simpleMessage(
       "Mugt dostawkalar",
     ),
+    "new_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
     "news_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),
     "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
+    "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "search": MessageLookupByLibrary.simpleMessage("Haryt gözleg"),
     "skidki": MessageLookupByLibrary.simpleMessage("Arzalnaşyklar"),
+    "top_products": MessageLookupByLibrary.simpleMessage("Top harytlar"),
   };
 }
