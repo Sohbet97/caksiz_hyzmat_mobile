@@ -1,161 +1,91 @@
-import 'package:equatable/equatable.dart';
 import 'package:mobile/core/utils/models/media_model.dart';
+import 'package:mobile/features/brands/model/brand_model.dart';
+import 'package:mobile/features/products/models/currency_model.dart';
 
-class ProductModel extends Equatable {
+class ProductModel {
   final int id;
   final String nameTm;
-  final String? nameRu;
-  final String? nameEn;
-  final String slug;
-  final String? description;
-  final double price;
-  final double? oldPrice;
-  final String? sku;
-  final int stock;
-  final int? categoryId;
+  final String nameRu;
+  final String nameEn;
+  final String descriptionTm;
+  final String descriptionRu;
+  final String descriptionEn;
+  final String sku;
+  final int? mediaId;
   final int? brandId;
+  final double costPrice;
+  final double salePrice;
+  final double? weigthGrams;
+  final int countView;
+  final int countOrder;
+  final double rating;
   final bool isActive;
-  final MediaDetailModel? media;
-  final DateTime? createdAt;
+  final DateTime createdAt;
   final DateTime? updatedAt;
+  final String searchVector;
+  final MediaDetailModel? tubnailModel;
+  final BrandModel? brandModel;
+  final ProductCurrencyModel currencyModel;
 
-  const ProductModel({
+  ProductModel({
     required this.id,
     required this.nameTm,
-    this.nameRu,
-    this.nameEn,
-    required this.slug,
-    this.description,
-    required this.price,
-    this.oldPrice,
-    this.sku,
-    this.stock = 0,
-    this.categoryId,
-    this.brandId,
-    this.isActive = true,
-    this.media,
-    this.createdAt,
-    this.updatedAt,
+    required this.nameRu,
+    required this.nameEn,
+    required this.descriptionTm,
+    required this.descriptionRu,
+    required this.descriptionEn,
+    required this.sku,
+    required this.mediaId,
+    required this.brandId,
+    required this.costPrice,
+    required this.salePrice,
+    required this.weigthGrams,
+    required this.countView,
+    required this.countOrder,
+    required this.rating,
+    required this.isActive,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.searchVector,
+    required this.tubnailModel,
+    required this.brandModel,
+    required this.currencyModel,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) {
-    return ProductModel(
-      id: _parseInt(json['id'])!,
-      nameTm: json['name_tm'] as String? ?? '',
-      nameRu: json['name_ru'] as String?,
-      nameEn: json['name_en'] as String?,
-      slug: json['slug'] as String? ?? '',
-      description: json['description'] as String?,
-      price: _parseDouble(json['price']) ?? 0,
-      oldPrice: _parseDouble(json['old_price']),
-      sku: json['sku'] as String?,
-      stock: _parseInt(json['stock']) ?? 0,
-      categoryId: _parseInt(json['category_id']),
-      brandId: _parseInt(json['brand_id']),
-      isActive: json['is_active'] as bool? ?? true,
-      media: json['media'] != null
-          ? MediaDetailModel.fromJson(json['media'] as Map<String, dynamic>)
-          : null,
-      createdAt: json['created_at'] != null
-          ? DateTime.parse(json['created_at'] as String)
-          : null,
-      updatedAt: json['updated_at'] != null
-          ? DateTime.parse(json['updated_at'] as String)
-          : null,
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name_tm': nameTm,
-      'name_ru': nameRu,
-      'name_en': nameEn,
-      'slug': slug,
-      'description': description,
-      'price': price,
-      'old_price': oldPrice,
-      'sku': sku,
-      'stock': stock,
-      'category_id': categoryId,
-      'brand_id': brandId,
-      'is_active': isActive,
-      'media': media?.toJson(),
-      'created_at': createdAt?.toIso8601String(),
-      'updated_at': updatedAt?.toIso8601String(),
-    };
-  }
-
-  ProductModel copyWith({
-    int? id,
-    String? nameTm,
-    String? nameRu,
-    String? nameEn,
-    String? slug,
-    String? description,
-    double? price,
-    double? oldPrice,
-    String? sku,
-    int? stock,
-    int? categoryId,
-    int? brandId,
-    bool? isActive,
-    MediaDetailModel? media,
-    DateTime? createdAt,
-    DateTime? updatedAt,
-  }) {
-    return ProductModel(
-      id: id ?? this.id,
-      nameTm: nameTm ?? this.nameTm,
-      nameRu: nameRu ?? this.nameRu,
-      nameEn: nameEn ?? this.nameEn,
-      slug: slug ?? this.slug,
-      description: description ?? this.description,
-      price: price ?? this.price,
-      oldPrice: oldPrice ?? this.oldPrice,
-      sku: sku ?? this.sku,
-      stock: stock ?? this.stock,
-      categoryId: categoryId ?? this.categoryId,
-      brandId: brandId ?? this.brandId,
-      isActive: isActive ?? this.isActive,
-      media: media ?? this.media,
-      createdAt: createdAt ?? this.createdAt,
-      updatedAt: updatedAt ?? this.updatedAt,
-    );
-  }
-
-  static int? _parseInt(dynamic value) {
-    if (value == null) return null;
-    if (value is int) return value;
-    if (value is String) return int.tryParse(value);
-    return null;
-  }
-
-  static double? _parseDouble(dynamic value) {
-    if (value == null) return null;
-    if (value is double) return value;
-    if (value is int) return value.toDouble();
-    if (value is String) return double.tryParse(value);
-    return null;
-  }
-
-  @override
-  List<Object?> get props => [
-    id,
-    nameTm,
-    nameRu,
-    nameEn,
-    slug,
-    description,
-    price,
-    oldPrice,
-    sku,
-    stock,
-    categoryId,
-    brandId,
-    isActive,
-    media,
-    createdAt,
-    updatedAt,
-  ];
+  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
+    id: json['id'] as int,
+    nameTm: json['name_tm'] ?? '',
+    nameRu: json['name_ru'] ?? '',
+    nameEn: json['name_en'] ?? '',
+    descriptionTm: json['description_tm'] ?? '',
+    descriptionRu: json['description_ru'] ?? '',
+    descriptionEn: json['description_en'] ?? '',
+    sku: json['sku'] ?? '',
+    mediaId: json['media_id'] as int?,
+    brandId: json['brand_id'] as int?,
+    costPrice: (json['cost_price'] as num? ?? 0).toDouble(),
+    salePrice: (json['sale_price'] as num? ?? 0).toDouble(),
+    weigthGrams: (json['weigth_grams'] as num?)?.toDouble(),
+    countView: json['count_view'] as int? ?? 0,
+    countOrder: json['count_order'] as int? ?? 0,
+    rating: (json['rating'] as num? ?? 0).toDouble(),
+    isActive: json['is_active'] as bool? ?? true,
+    createdAt: json['created_at'] != null
+        ? DateTime.parse(json['created_at'].toString())
+        : DateTime.now(),
+    updatedAt: json['updated_at'] != null
+        ? DateTime.parse(json['updated_at'].toString())
+        : null,
+    searchVector: json['search_vector'] ?? '',
+    tubnailModel: json['media'] != null
+        ? MediaDetailModel.fromJson(json['media'] as Map<String, dynamic>)
+        : null,
+    brandModel: json['brand'] != null
+        ? BrandModel.fromJson(json['brand'] as Map<String, dynamic>)
+        : null,
+    currencyModel: ProductCurrencyModel.fromJson(
+      json['currency'] as Map<String, dynamic>,
+    ),
+  );
 }

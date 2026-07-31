@@ -45,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "mugt_dostawkalar": MessageLookupByLibrary.simpleMessage(
       "Mugt dostawkalar",
     ),
+    "nasazlyk_yuze_cykdy": MessageLookupByLibrary.simpleMessage(
+      "Näsazlyk ýüze çykdy",
+    ),
     "new_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
     "news_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),

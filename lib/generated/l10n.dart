@@ -198,6 +198,16 @@ class S {
   String get favorites {
     return Intl.message('Halanlarym', name: 'favorites', desc: '', args: []);
   }
+
+  /// `Näsazlyk ýüze çykdy`
+  String get nasazlyk_yuze_cykdy {
+    return Intl.message(
+      'Näsazlyk ýüze çykdy',
+      name: 'nasazlyk_yuze_cykdy',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
