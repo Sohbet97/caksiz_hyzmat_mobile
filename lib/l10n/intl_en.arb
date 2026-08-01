@@ -5,5 +5,14 @@
     "korzina": "Sebet",
     "categoriesEmpty"   :   "Kategoriýalar ýok",
     "categoryEmptyDesc" :   "Похоже, здесь пока пусто. Попробуйте обновить страницу позже",
-    "retry" :   "Täzelemek"
+    "retry" :   "Täzelemek",
+    "AppName"   :   "Çäksiz Hyzmat",
+    "ynam_sizden": "Ynam Sizden",
+    "netije_bizden": "Netije Bizden",
+    "schools"   :   "Okuwlar",
+    "searchSchoolsHint": "Okuwlardan gözleg...",
+    "schoolsLoadError": "Не удалось загрузить учебные заведения",
+    "noSchoolsFound": "Okuwlar tapylmady",
+    "noSchoolsFoundDEsc": "Häzirki wagta ulgama goşulan okuwlar tapylmady",
+    "errorSchool"   :   "Что-то пошло не так"
 }

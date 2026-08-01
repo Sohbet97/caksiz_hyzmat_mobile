@@ -98,6 +98,81 @@ class S {
   String get retry {
     return Intl.message('Täzelemek', name: 'retry', desc: '', args: []);
   }
+
+  /// `Çäksiz Hyzmat`
+  String get AppName {
+    return Intl.message('Çäksiz Hyzmat', name: 'AppName', desc: '', args: []);
+  }
+
+  /// `Ynam Sizden`
+  String get ynam_sizden {
+    return Intl.message('Ynam Sizden', name: 'ynam_sizden', desc: '', args: []);
+  }
+
+  /// `Netije Bizden`
+  String get netije_bizden {
+    return Intl.message(
+      'Netije Bizden',
+      name: 'netije_bizden',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okuwlar`
+  String get schools {
+    return Intl.message('Okuwlar', name: 'schools', desc: '', args: []);
+  }
+
+  /// `Okuwlardan gözleg...`
+  String get searchSchoolsHint {
+    return Intl.message(
+      'Okuwlardan gözleg...',
+      name: 'searchSchoolsHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Не удалось загрузить учебные заведения`
+  String get schoolsLoadError {
+    return Intl.message(
+      'Не удалось загрузить учебные заведения',
+      name: 'schoolsLoadError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okuwlar tapylmady`
+  String get noSchoolsFound {
+    return Intl.message(
+      'Okuwlar tapylmady',
+      name: 'noSchoolsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Häzirki wagta ulgama goşulan okuwlar tapylmady`
+  String get noSchoolsFoundDEsc {
+    return Intl.message(
+      'Häzirki wagta ulgama goşulan okuwlar tapylmady',
+      name: 'noSchoolsFoundDEsc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Что-то пошло не так`
+  String get errorSchool {
+    return Intl.message(
+      'Что-то пошло не так',
+      name: 'errorSchool',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

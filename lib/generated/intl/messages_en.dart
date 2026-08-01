@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "AppName": MessageLookupByLibrary.simpleMessage("Çäksiz Hyzmat"),
     "categoriesEmpty": MessageLookupByLibrary.simpleMessage(
       "Kategoriýalar ýok",
     ),
@@ -29,9 +30,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "categoryEmptyDesc": MessageLookupByLibrary.simpleMessage(
       "Похоже, здесь пока пусто. Попробуйте обновить страницу позже",
     ),
+    "errorSchool": MessageLookupByLibrary.simpleMessage("Что-то пошло не так"),
     "home": MessageLookupByLibrary.simpleMessage("Esasy"),
     "korzina": MessageLookupByLibrary.simpleMessage("Sebet"),
+    "netije_bizden": MessageLookupByLibrary.simpleMessage("Netije Bizden"),
+    "noSchoolsFound": MessageLookupByLibrary.simpleMessage("Okuwlar tapylmady"),
+    "noSchoolsFoundDEsc": MessageLookupByLibrary.simpleMessage(
+      "Häzirki wagta ulgama goşulan okuwlar tapylmady",
+    ),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),
     "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
+    "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
+    "schoolsLoadError": MessageLookupByLibrary.simpleMessage(
+      "Не удалось загрузить учебные заведения",
+    ),
+    "searchSchoolsHint": MessageLookupByLibrary.simpleMessage(
+      "Okuwlardan gözleg...",
+    ),
+    "ynam_sizden": MessageLookupByLibrary.simpleMessage("Ynam Sizden"),
   };
 }
