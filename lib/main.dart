@@ -6,7 +6,11 @@ import 'package:mobile/features/brands/bloc/brand_bloc.dart';
 import 'package:mobile/features/brands/data/brands_repository.dart';
 import 'package:mobile/features/category/bloc/category_bloc.dart';
 import 'package:mobile/features/category/data/category_repository.dart';
+import 'package:mobile/features/favorite/bloc/favorite_bloc.dart';
+import 'package:mobile/features/favorite/data/favorite_repository.dart';
 import 'package:mobile/features/home/bloc/bottom_navigation_bloc.dart';
+import 'package:mobile/features/reviews/bloc/reviews_bloc.dart';
+import 'package:mobile/features/reviews/data/review_repository.dart';
 import 'package:mobile/features/schools/bloc/schools_bloc.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
 
@@ -81,6 +85,17 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => BrandsRepository(dio: apiClient.dio),
         ),
+
+        // favorite
+        RepositoryProvider(
+          create: (context) => FavoriteRepository(dio: apiClient.dio),
+        ),
+
+        // review
+        RepositoryProvider(
+          create: (context) =>
+              ReviewRepository(dio: apiClient.dio, storage: settingsStorage),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -110,6 +125,19 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 BrandBloc(brandsRepository: context.read<BrandsRepository>()),
+          ),
+
+          // favorite bloc
+          BlocProvider(
+            create: (context) => FavoriteBloc(
+              favoriteRepository: context.read<FavoriteRepository>(),
+            ),
+          ),
+
+          // review bloc
+          BlocProvider(
+            create: (context) =>
+                ReviewsBloc(reviewRepository: context.read<ReviewRepository>()),
           ),
         ],
         child: BlocBuilder<MainBloc, MainState>(

@@ -3,7 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:mobile/features/brands/presentation/brands_screen.dart';
 import 'package:mobile/features/category/models/category_model.dart';
 import 'package:mobile/features/category/presentation/category_detail_screen.dart';
+import 'package:mobile/features/favorite/presentation/favorites_screen.dart';
 import 'package:mobile/features/home/presentation/home_screen.dart';
+import 'package:mobile/features/orders/presentation/orders_screen.dart';
+import 'package:mobile/features/reviews/presentation/reviews_screen.dart';
 import 'package:mobile/features/schools/bloc/school_detail_bloc.dart';
 import 'package:mobile/features/schools/data/models/school_model.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
@@ -20,6 +23,9 @@ abstract class AppRoutes {
   static const schoolDetails = '/schoolDetailScreen';
   static const productSearchScreen = '/productSearch';
   static const brandsScreen = '/brands';
+  static const favorites = '/favorites';
+  static const reviews = '/reviews';
+  static const orders = '/orders';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -75,6 +81,22 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.brandsScreen,
       builder: (context, state) => const BrandsScreen(),
+    ),
+
+    // favorites
+    GoRoute(
+      path: AppRoutes.favorites,
+      builder: (context, state) => const FavoritesScreen(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.reviews,
+      builder: (context, state) => const ReviewsScreen(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.orders,
+      builder: (context, state) => const OrdersScreen(),
     ),
   ],
 );
