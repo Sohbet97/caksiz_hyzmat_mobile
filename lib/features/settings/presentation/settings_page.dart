@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mobile/core/router/app_router.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../generated/l10n.dart';
@@ -16,85 +18,89 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: colors.surface,
       appBar: AppBar(title: Text(localization.settingsTitle)),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SettingsMenuGroupWidget(
-              children: [
-                SettingsMenuItemWidget(
-                  title: localization.settingsLogin,
-                  onTap: () {},
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            SettingsMenuGroupWidget(
-              children: [
-                SettingsMenuItemWidget(
-                  title: localization.settingsCountryRegion,
-                  trailingText: 'TM',
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsLanguage,
-                  trailingText: 'Türkmençe',
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsCurrency,
-                  trailingText: 'TMT',
-                  onTap: () {},
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            SettingsMenuGroupWidget(
-              children: [
-                SettingsMenuItemWidget(
-                  title: localization.settingsNotifications,
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsPrivacy,
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsPermissions,
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsSecurityCenter,
-                  onTap: () {},
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            SettingsMenuGroupWidget(
-              children: [
-                SettingsMenuItemWidget(
-                  title: localization.settingsAboutApp,
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsContactUs,
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsContact,
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsLegal,
-                  onTap: () {},
-                ),
-                SettingsMenuItemWidget(
-                  title: localization.settingsShareApp,
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SettingsMenuGroupWidget(
+                children: [
+                  SettingsMenuItemWidget(
+                    title: localization.settingsLogin,
+                    onTap: () {
+                      context.push(AppRoutes.auth);
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              SettingsMenuGroupWidget(
+                children: [
+                  SettingsMenuItemWidget(
+                    title: localization.settingsCountryRegion,
+                    trailingText: 'TM',
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsLanguage,
+                    trailingText: 'Türkmençe',
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsCurrency,
+                    trailingText: 'TMT',
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              SettingsMenuGroupWidget(
+                children: [
+                  SettingsMenuItemWidget(
+                    title: localization.settingsNotifications,
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsPrivacy,
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsPermissions,
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsSecurityCenter,
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              SettingsMenuGroupWidget(
+                children: [
+                  SettingsMenuItemWidget(
+                    title: localization.settingsAboutApp,
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsContactUs,
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsContact,
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsLegal,
+                    onTap: () {},
+                  ),
+                  SettingsMenuItemWidget(
+                    title: localization.settingsShareApp,
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
