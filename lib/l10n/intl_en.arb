@@ -14,5 +14,18 @@
     "schoolsLoadError": "Не удалось загрузить учебные заведения",
     "noSchoolsFound": "Okuwlar tapylmady",
     "noSchoolsFoundDEsc": "Häzirki wagta ulgama goşulan okuwlar tapylmady",
-    "errorSchool"   :   "Что-то пошло не так"
+    "errorSchool"   :   "Что-то пошло не так",
+    "all"   :   "Ählisi",
+    "search"    :   "Haryt gözleg",
+    "skidki"    :   "Arzalnaşyklar",
+    "news_added"    :   "Täze goşulanlar",
+    "mugt_dostawkalar"    :   "Mugt dostawkalar",
+    "gunun_arzanlasygy"    :   "Günüň arzanlaşygy",
+    "cargo"     :   "Kargo",
+    "brands"    :   "Brendler",
+    "top_products"  :   "Top harytlar",
+    "aksiyalar" :   "Aksiýalar",
+    "new_added" :   "Täze goşulanlar",
+    "maslahat_berilyanler"  :   "Maslahat berilýänler",
+    "favorites" :   "Halanlarym"
 }

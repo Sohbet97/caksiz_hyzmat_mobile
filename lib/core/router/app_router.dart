@@ -8,6 +8,7 @@ import 'package:mobile/features/schools/data/models/school_model.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
 import 'package:mobile/features/schools/presentation/school_detail_screen.dart';
 import 'package:mobile/features/schools/presentation/schools_screen.dart';
+import 'package:mobile/features/products/presentation/product_search_screen.dart';
 import 'package:mobile/features/splasch/presentation/splash_screen.dart';
 
 abstract class AppRoutes {
@@ -16,6 +17,7 @@ abstract class AppRoutes {
   static const categoryDetail = '/categoryDetail';
   static const schools = '/schools';
   static const schoolDetails = '/schoolDetailScreen';
+  static const productSearchScreen = '/productSearch';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -60,6 +62,11 @@ final GoRouter appRouter = GoRouter(
           child: SchoolDetailScreen(schoolModel: model),
         );
       },
+    ),
+    // product search screen
+    GoRoute(
+      path: AppRoutes.productSearchScreen,
+      builder: (context, state) => const ProductSearchScreen(),
     ),
   ],
 );

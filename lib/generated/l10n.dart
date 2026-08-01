@@ -173,6 +173,101 @@ class S {
       args: [],
     );
   }
+
+  /// `Ählisi`
+  String get all {
+    return Intl.message('Ählisi', name: 'all', desc: '', args: []);
+  }
+
+  /// `Haryt gözleg`
+  String get search {
+    return Intl.message('Haryt gözleg', name: 'search', desc: '', args: []);
+  }
+
+  /// `Arzalnaşyklar`
+  String get skidki {
+    return Intl.message('Arzalnaşyklar', name: 'skidki', desc: '', args: []);
+  }
+
+  /// `Täze goşulanlar`
+  String get news_added {
+    return Intl.message(
+      'Täze goşulanlar',
+      name: 'news_added',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mugt dostawkalar`
+  String get mugt_dostawkalar {
+    return Intl.message(
+      'Mugt dostawkalar',
+      name: 'mugt_dostawkalar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Günüň arzanlaşygy`
+  String get gunun_arzanlasygy {
+    return Intl.message(
+      'Günüň arzanlaşygy',
+      name: 'gunun_arzanlasygy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kargo`
+  String get cargo {
+    return Intl.message('Kargo', name: 'cargo', desc: '', args: []);
+  }
+
+  /// `Brendler`
+  String get brands {
+    return Intl.message('Brendler', name: 'brands', desc: '', args: []);
+  }
+
+  /// `Top harytlar`
+  String get top_products {
+    return Intl.message(
+      'Top harytlar',
+      name: 'top_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aksiýalar`
+  String get aksiyalar {
+    return Intl.message('Aksiýalar', name: 'aksiyalar', desc: '', args: []);
+  }
+
+  /// `Täze goşulanlar`
+  String get new_added {
+    return Intl.message(
+      'Täze goşulanlar',
+      name: 'new_added',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maslahat berilýänler`
+  String get maslahat_berilyanler {
+    return Intl.message(
+      'Maslahat berilýänler',
+      name: 'maslahat_berilyanler',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlarym`
+  String get favorites {
+    return Intl.message('Halanlarym', name: 'favorites', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
