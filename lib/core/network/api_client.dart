@@ -5,7 +5,8 @@ import 'package:mobile/core/storage/settings_storage.dart';
 class ApiClient {
   final Dio dio;
   final SettingsStorage settingsStorage;
-  static String baseUrl = 'https://caksizhyzmat.com/api/';
+  // static String baseUrl = 'https://caksizhyzmat.com/api/';
+  static String baseUrl = 'http://192.168.1.106:3000/api/';
 
   Future<bool>? _refreshing;
 

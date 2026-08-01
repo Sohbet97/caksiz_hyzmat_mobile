@@ -11,11 +11,13 @@ class AllBodyWidget extends StatefulWidget {
 class _AllBodyWidgetState extends State<AllBodyWidget> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        const SliverToBoxAdapter(child: SizedBox(height: 8)),
-        const HomeMenuWidget(),
-      ],
+    return SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(child: SizedBox(height: 8)),
+          const SliverToBoxAdapter(child: HomeMenuWidget()),
+        ],
+      ),
     );
   }
 }
