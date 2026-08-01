@@ -48,6 +48,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Mugt dostawkalar",
     ),
     "netije_bizden": MessageLookupByLibrary.simpleMessage("Netije Bizden"),
+    "nasazlyk_yuze_cykdy": MessageLookupByLibrary.simpleMessage(
+      "Näsazlyk ýüze çykdy",
+    ),
     "new_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
     "news_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
     "noSchoolsFound": MessageLookupByLibrary.simpleMessage("Okuwlar tapylmady"),

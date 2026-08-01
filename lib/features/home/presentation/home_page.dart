@@ -45,7 +45,11 @@ class _HomePageState extends State<HomePage> {
       child: BlocBuilder<CategoryBloc, CategoryState>(
         builder: (context, state) {
           if (state is CategoryError) {
-            return HomeErrorWidget();
+            return HomeErrorWidget(
+              onTap: () {
+                context.read<CategoryBloc>().add(LoadCategoriesEvent());
+              },
+            );
           }
 
           if (state is CategoryLoading) {
