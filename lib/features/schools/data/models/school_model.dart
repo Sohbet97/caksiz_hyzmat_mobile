@@ -2,6 +2,12 @@ import 'dart:ui' show Locale;
 
 import 'package:equatable/equatable.dart';
 
+int _parseId(dynamic value) =>
+    value is String ? int.parse(value) : value as int;
+
+int? _parseIdOrNull(dynamic value) =>
+    value == null ? null : _parseId(value);
+
 enum SchoolMediaType {
   image,
   video,
@@ -32,7 +38,7 @@ final class SchoolMediaModel extends Equatable {
 
   factory SchoolMediaModel.fromJson(Map<String, dynamic> json) {
     return SchoolMediaModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       mediaType: SchoolMediaType.fromJson(json['media_type'] as String?),
       fileName: json['file_name'] as String? ?? '',
       url: json['url'] as String? ?? '',
@@ -58,7 +64,7 @@ final class SchoolCityModel extends Equatable {
 
   factory SchoolCityModel.fromJson(Map<String, dynamic> json) {
     return SchoolCityModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       nameTm: json['name_tm'] as String? ?? '',
       nameRu: json['name_ru'] as String? ?? '',
       region: json['region'] as String?,
@@ -116,7 +122,7 @@ final class SchoolModel extends Equatable {
 
   factory SchoolModel.fromJson(Map<String, dynamic> json) {
     return SchoolModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       nameTm: json['name_tm'] as String? ?? '',
       nameRu: json['name_ru'] as String? ?? '',
       nameEn: json['name_en'] as String?,
@@ -124,7 +130,7 @@ final class SchoolModel extends Equatable {
       descriptionTm: json['description_tm'] as String?,
       descriptionRu: json['description_ru'] as String?,
       descriptionEn: json['description_en'] as String?,
-      thumbnailMediaId: json['thumbnail_media_id'] as int?,
+      thumbnailMediaId: _parseIdOrNull(json['thumbnail_media_id']),
       thumbnailMedia: json['thumbnail_media'] != null
           ? SchoolMediaModel.fromJson(
               json['thumbnail_media'] as Map<String, dynamic>,
@@ -132,7 +138,7 @@ final class SchoolModel extends Equatable {
           : null,
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
-      cityId: json['city_id'] as int?,
+      cityId: _parseIdOrNull(json['city_id']),
       city: json['city'] != null
           ? SchoolCityModel.fromJson(json['city'] as Map<String, dynamic>)
           : null,

@@ -111,6 +111,9 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: NotificationListener<UserScrollNotification>(
                         onNotification: (notification) {
+                          if (notification.metrics.axis != Axis.vertical) {
+                            return false;
+                          }
                           final tabBarVisibilityBloc = context
                               .read<TabBarVisibilityBloc>();
                           if (notification.direction ==

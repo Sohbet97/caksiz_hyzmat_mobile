@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile/features/brands/presentation/brands_screen.dart';
 import 'package:mobile/features/category/models/category_model.dart';
 import 'package:mobile/features/category/presentation/category_detail_screen.dart';
 import 'package:mobile/features/home/presentation/home_screen.dart';
@@ -18,6 +19,7 @@ abstract class AppRoutes {
   static const schools = '/schools';
   static const schoolDetails = '/schoolDetailScreen';
   static const productSearchScreen = '/productSearch';
+  static const brandsScreen = '/brands';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -67,6 +69,12 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.productSearchScreen,
       builder: (context, state) => const ProductSearchScreen(),
+    ),
+
+    // brands screen
+    GoRoute(
+      path: AppRoutes.brandsScreen,
+      builder: (context, state) => const BrandsScreen(),
     ),
   ],
 );

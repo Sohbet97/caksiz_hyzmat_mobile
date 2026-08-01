@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:mobile/core/network/api_client.dart';
 
+const String mediaUrl = 'https://caksizhyzmat.com';
+
 final class MediaDetailModel extends Equatable {
   final int id;
   final String? entityType;

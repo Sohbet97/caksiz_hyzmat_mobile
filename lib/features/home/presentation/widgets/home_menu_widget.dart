@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mobile/core/router/app_router.dart';
 
 import '../../../../generated/l10n.dart';
 
@@ -21,7 +23,7 @@ class HomeMenuWidget extends StatelessWidget {
             image: 'assets/images/okuwlar.gif',
             badgeCount: 0,
             onTap: () {
-              // TODO click to schools screen
+              context.push(AppRoutes.schools);
             },
           ),
 
@@ -39,7 +41,7 @@ class HomeMenuWidget extends StatelessWidget {
             image: 'assets/images/brand.png',
             badgeCount: 0,
             onTap: () {
-              // TODO click to brands
+              context.push(AppRoutes.brandsScreen);
             },
           ),
 
@@ -75,7 +77,7 @@ class HomeMenuWidget extends StatelessWidget {
             image: 'assets/images/rekomen.gif',
             badgeCount: 0,
             onTap: () {
-              // TODO click to reçomended
+              // TODO click to recomended
             },
           ),
 
