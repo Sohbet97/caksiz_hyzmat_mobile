@@ -96,7 +96,8 @@ class MyApp extends StatelessWidget {
 
         // favorite
         RepositoryProvider(
-          create: (context) => FavoriteRepository(dio: apiClient.dio),
+          create: (context) =>
+              FavoriteRepository(dio: apiClient.dio, storage: settingsStorage),
         ),
 
         // review
@@ -148,7 +149,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => FavoriteBloc(
               favoriteRepository: context.read<FavoriteRepository>(),
-            ),
+            )..add(const LoadFavorites()),
           ),
 
           // review bloc

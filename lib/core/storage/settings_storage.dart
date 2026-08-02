@@ -8,6 +8,7 @@ class SettingsStorage {
   static const _refreshToken = 'refreshToken';
   static const _authToken = 'authToken';
   static const _registrationStatus = 'registrationStatus';
+  static const _userId = 'userId';
 
   Future<ThemeMode> readThemeMode() async {
     final prefs = await SharedPreferences.getInstance();
@@ -72,5 +73,15 @@ class SettingsStorage {
   Future<void> saveRegistrationStatus(bool value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_registrationStatus, value);
+  }
+
+  Future<int?> readUserId() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_userId);
+  }
+
+  Future<void> writeUserId(int id) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_userId, id);
   }
 }
