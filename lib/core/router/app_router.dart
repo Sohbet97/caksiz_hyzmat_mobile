@@ -42,9 +42,7 @@ abstract class AppRoutes {
   static const schoolDetails = '/schoolDetailScreen';
   static const productSearchScreen = '/productSearch';
   static const brandsScreen = '/brands';
-  static const favorites = '/favorites';
   static const reviews = '/reviews';
-  static const orders = '/orders';
   static const bannerDetail = '/bannerDetail';
 }
 
