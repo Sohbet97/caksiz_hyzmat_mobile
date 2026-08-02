@@ -1,11 +1,13 @@
-class ProductFilterModel {
+import 'package:equatable/equatable.dart';
+
+class ProductFilterModel extends Equatable {
   final int page;
   final int limit;
   final String? search;
   final int? brandId;
   final int? categoryId;
 
-  ProductFilterModel({
+  const ProductFilterModel({
     this.page = 1,
     this.limit = 20,
     this.search,
@@ -36,4 +38,7 @@ class ProductFilterModel {
     if (brandId != null) 'brand_id': brandId,
     if (categoryId != null) 'category_id': categoryId,
   };
+
+  @override
+  List<Object?> get props => [page, limit, search, brandId, categoryId];
 }

@@ -32,7 +32,7 @@ class ResponseMeta {
     total: json['total'] as int? ?? 0,
     page: json['page'] as int? ?? 1,
     limit: json['limit'] as int? ?? 0,
-    totalPage: json['total_page'] as int? ?? 0,
+    totalPage: json['totalPages'] as int? ?? 0,
   );
 
   bool get hasNextPage => page < totalPage;

@@ -11,6 +11,7 @@ import 'package:mobile/features/category/data/category_repository.dart';
 import 'package:mobile/features/favorite/bloc/favorite_bloc.dart';
 import 'package:mobile/features/favorite/data/favorite_repository.dart';
 import 'package:mobile/features/home/bloc/bottom_navigation_bloc.dart';
+import 'package:mobile/features/products/data/product_repository.dart';
 import 'package:mobile/features/reviews/bloc/reviews_bloc.dart';
 import 'package:mobile/features/reviews/data/review_repository.dart';
 import 'package:mobile/features/schools/bloc/schools_bloc.dart';
@@ -106,6 +107,11 @@ class MyApp extends StatelessWidget {
         // banners
         RepositoryProvider(
           create: (context) => BannersRepository(dio: apiClient.dio),
+        ),
+
+        // products
+        RepositoryProvider(
+          create: (context) => ProductRepository(dio: apiClient.dio),
         ),
       ],
       child: MultiBlocProvider(
