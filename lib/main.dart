@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mobile/features/auth/bloc/auth_bloc.dart';
+import 'package:mobile/features/auth/data/auth_repository.dart';
 import 'package:mobile/features/banners/bloc/banner_bloc.dart';
 import 'package:mobile/features/banners/data/banners_repository.dart';
 import 'package:mobile/features/brands/bloc/brand_bloc.dart';
@@ -33,11 +35,12 @@ void main() async {
 
   final settingsStorage = SettingsStorage();
   final apiClient = ApiClient(settingsStorage: settingsStorage);
+  await apiClient.ensureValidSession();
 
   final pushNotificationService = PushNotificationService(
     onToken: apiClient.registerPushToken,
   );
-try {
+  try {
     await pushNotificationService.initialize();
   } catch (e, stackTrace) {
     debugPrint('Push notification başlatma hatası: $e');
@@ -117,6 +120,12 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => ProductRepository(dio: apiClient.dio),
         ),
+
+        // auth
+        RepositoryProvider(
+          create: (context) =>
+              AuthRepository(dio: apiClient.dio, storage: settingsStorage),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -158,7 +167,8 @@ class MyApp extends StatelessWidget {
           // viewed products bloc
           BlocProvider(
             create: (context) => ViewedProductsBloc(
-              viewedProductsRepository: context.read<ViewedProductsRepository>(),
+              viewedProductsRepository: context
+                  .read<ViewedProductsRepository>(),
               productRepository: context.read<ProductRepository>(),
             ),
           ),
@@ -167,6 +177,14 @@ class MyApp extends StatelessWidget {
             create: (context) => BannerBloc(
               bannersRepository: context.read<BannersRepository>(),
             ),
+          ),
+
+          // auth bloc
+          BlocProvider(
+            create: (context) => AuthBloc(
+              authRepository: context.read<AuthRepository>(),
+              storage: context.read<SettingsStorage>(),
+            )..add(const CheckAuthStatusRequested()),
           ),
         ],
         child: BlocBuilder<MainBloc, MainState>(

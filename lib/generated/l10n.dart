@@ -668,6 +668,11 @@ class S {
       args: [],
     );
   }
+
+  /// `Hoş geldiňiz `
+  String get welcome {
+    return Intl.message('Hoş geldiňiz ', name: 'welcome', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

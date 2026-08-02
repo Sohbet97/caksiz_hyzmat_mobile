@@ -4,7 +4,7 @@ class FavoriteFilterModel {
 
   /// Большой лимит по умолчанию — чтобы получать все избранные товары
   /// пользователя за один запрос.
-  const FavoriteFilterModel({this.page = 1, this.limit = 10000});
+  const FavoriteFilterModel({this.page = 1, this.limit = 100});
 
   FavoriteFilterModel copyWith({int? page, int? limit}) {
     return FavoriteFilterModel(

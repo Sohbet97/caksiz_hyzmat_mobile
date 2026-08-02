@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "766753306156-jnem6n3re43pfvjm13bmv44m4c6jjutf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.caksizhyzmat.app",
+            "certificate_hash": "e99ac1b2bace5ee1578c5efdd06f9defdef3c71b"
+          }
+        },
+        {
           "client_id": "766753306156-updk59p3k017b9s81uirs603oar31o1e.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "766753306156-updk59p3k017b9s81uirs603oar31o1e.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "766753306156-iq1optgci6qsleuku5sv0macir5vidtg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.caksizhyzmat.app"
+              }
             }
           ]
         }

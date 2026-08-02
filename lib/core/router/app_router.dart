@@ -8,6 +8,8 @@ import 'package:mobile/features/category/presentation/category_detail_screen.dar
 import 'package:mobile/features/favorite/presentation/favorites_screen.dart';
 import 'package:mobile/features/home/presentation/home_screen.dart';
 import 'package:mobile/features/orders/presentation/orders_screen.dart';
+import 'package:mobile/features/person/models/person_model.dart';
+import 'package:mobile/features/person/presentation/person_detail_screen.dart';
 import 'package:mobile/features/products/bloc/product_detail_bloc.dart';
 import 'package:mobile/features/products/data/product_repository.dart';
 import 'package:mobile/features/products/models/product_model.dart';
@@ -49,6 +51,7 @@ abstract class AppRoutes {
   static const brandsScreen = '/brands';
   static const bannerDetail = '/bannerDetail';
   static const productDetail = '/productDetailScreen';
+  static const personDetail = '/personDetailScreen';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -195,6 +198,15 @@ final GoRouter appRouter = GoRouter(
           )..add(GetProductDetailEvent(productId: model.id)),
           child: ProductDetailScreen(model: model),
         );
+      },
+    ),
+
+    // person detail screen
+    GoRoute(
+      path: AppRoutes.personDetail,
+      builder: (context, state) {
+        final person = state.extra as PersonModel;
+        return PersonDetailScreen(person: person);
       },
     ),
   ],
