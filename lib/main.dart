@@ -35,7 +35,12 @@ void main() async {
   final pushNotificationService = PushNotificationService(
     onToken: apiClient.registerPushToken,
   );
-  await pushNotificationService.initialize();
+try {
+    await pushNotificationService.initialize();
+  } catch (e, stackTrace) {
+    debugPrint('Push notification başlatma hatası: $e');
+    debugPrint('$stackTrace');
+  }
 
   runApp(
     MyApp(

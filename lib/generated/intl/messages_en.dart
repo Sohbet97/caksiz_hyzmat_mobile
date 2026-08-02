@@ -25,6 +25,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "AppName": MessageLookupByLibrary.simpleMessage("Çäksiz Hyzmat"),
     "aksiyalar": MessageLookupByLibrary.simpleMessage("Aksiýalar"),
     "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
+    "authAnd": MessageLookupByLibrary.simpleMessage("we"),
+    "authEmailContinue": MessageLookupByLibrary.simpleMessage(
+      "E-poçta bilen dowam et",
+    ),
+    "authGoogleContinue": MessageLookupByLibrary.simpleMessage(
+      "Google bilen dowam et",
+    ),
+    "authPhoneContinue": MessageLookupByLibrary.simpleMessage(
+      "Telefon belgisi bilen dowam et",
+    ),
+    "authPrivacyPolicy": MessageLookupByLibrary.simpleMessage(
+      "Gizlinlik syýasatyny",
+    ),
+    "authSecureNote": MessageLookupByLibrary.simpleMessage(
+      "Ähli maglumatlaryňyz goralýar",
+    ),
+    "authTermsOfUse": MessageLookupByLibrary.simpleMessage("Ulanyş şertlerini"),
+    "authTermsPrefix": MessageLookupByLibrary.simpleMessage(
+      "Dowam etmek bilen",
+    ),
+    "authTermsSuffix": MessageLookupByLibrary.simpleMessage(
+      "okandygyňyzy tassyklaýarsyňyz.",
+    ),
+    "authTitle": MessageLookupByLibrary.simpleMessage("ÇÄKSIZ HYZMATLAR"),
+    "authTroubleLogin": MessageLookupByLibrary.simpleMessage(
+      "Içeri girmekde kynçylyk çekýärsiňizmi?",
+    ),
     "brands": MessageLookupByLibrary.simpleMessage("Brendler"),
     "cargo": MessageLookupByLibrary.simpleMessage("Kargo"),
     "categoriesEmpty": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +85,33 @@ class MessageLookup extends MessageLookupByLibrary {
       "Häzirki wagta ulgama goşulan okuwlar tapylmady",
     ),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),
+    "personAddresses": MessageLookupByLibrary.simpleMessage("Salgylar"),
+    "personBalance": MessageLookupByLibrary.simpleMessage("Kuponlarym"),
+    "personCoupons": MessageLookupByLibrary.simpleMessage("Halanlarym"),
+    "personFollowing": MessageLookupByLibrary.simpleMessage("Yzarlanýanlar"),
+    "personFreeReturn": MessageLookupByLibrary.simpleMessage(
+      "Mugt yzyna gaýtarmak",
+    ),
+    "personFreeReturnDesc": MessageLookupByLibrary.simpleMessage(
+      "90 güne çenli",
+    ),
+    "personFreeShipping": MessageLookupByLibrary.simpleMessage(
+      "Mugt eltip bermek",
+    ),
+    "personFreeShippingDesc": MessageLookupByLibrary.simpleMessage("Ynanylmaz"),
+    "personHistory": MessageLookupByLibrary.simpleMessage("Görenlerim"),
+    "personKargo": MessageLookupByLibrary.simpleMessage("Kargo"),
+    "personLoginButton": MessageLookupByLibrary.simpleMessage(
+      "Içeri giriň / Agza Boluň",
+    ),
+    "personLoginTitle": MessageLookupByLibrary.simpleMessage(
+      "Iň gowy tejribe üçin içeri giriň",
+    ),
+    "personMessages": MessageLookupByLibrary.simpleMessage("Habarlar"),
+    "personOrders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
+    "personReviews": MessageLookupByLibrary.simpleMessage("Okuwlar"),
+    "personSettings": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
+    "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
     "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
     "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "schoolsLoadError": MessageLookupByLibrary.simpleMessage(
@@ -67,6 +121,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchSchoolsHint": MessageLookupByLibrary.simpleMessage(
       "Okuwlardan gözleg...",
     ),
+    "settingsAboutApp": MessageLookupByLibrary.simpleMessage(
+      "Bu programma barada",
+    ),
+    "settingsContact": MessageLookupByLibrary.simpleMessage("Aragatnaşyk"),
+    "settingsContactUs": MessageLookupByLibrary.simpleMessage(
+      "Biz bilen habarlaşyň",
+    ),
+    "settingsCountryRegion": MessageLookupByLibrary.simpleMessage(
+      "Ýurt we sebit",
+    ),
+    "settingsCurrency": MessageLookupByLibrary.simpleMessage("Pul birligi"),
+    "settingsLanguage": MessageLookupByLibrary.simpleMessage("Dil"),
+    "settingsLegal": MessageLookupByLibrary.simpleMessage(
+      "Hukuk şertleri we syýasatlar",
+    ),
+    "settingsLogin": MessageLookupByLibrary.simpleMessage(
+      "Içeri gir / Agza bol",
+    ),
+    "settingsNotifications": MessageLookupByLibrary.simpleMessage(
+      "Bildirişler",
+    ),
+    "settingsPermissions": MessageLookupByLibrary.simpleMessage("Rugsatlar"),
+    "settingsPrivacy": MessageLookupByLibrary.simpleMessage("Gizlinlik"),
+    "settingsSecurityCenter": MessageLookupByLibrary.simpleMessage(
+      "Howpsuzlyk merkezi",
+    ),
+    "settingsShareApp": MessageLookupByLibrary.simpleMessage(
+      "Bu programmany paýlaş",
+    ),
+    "settingsTitle": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
     "skidki": MessageLookupByLibrary.simpleMessage("Arzalnaşyklar"),
     "top_products": MessageLookupByLibrary.simpleMessage("Top harytlar"),
     "ynam_sizden": MessageLookupByLibrary.simpleMessage("Ynam Sizden"),
