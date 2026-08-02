@@ -21,4 +21,11 @@ class ProductCurrencyModel {
         isActive: json['is_active'] as bool,
         createdAt: DateTime.parse(json['created_at'].toString()),
       );
+       factory ProductCurrencyModel.empty() => ProductCurrencyModel(
+        id: 0,
+        code: '',
+        name: '',
+        isActive: false,
+        createdAt: DateTime.now(),
+      );
 }

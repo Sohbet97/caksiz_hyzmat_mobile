@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/router/app_router.dart';
 import '../../../core/storage/settings_storage.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../products/presentation/widgets/product_person_grid_widget.dart';
 import 'widgets/person_grid_widget.dart';
 import 'widgets/person_guest_header_widget.dart';
 import 'widgets/person_member_header_widget.dart';
 import 'widgets/person_menu_list_widget.dart';
-
-import 'package:go_router/go_router.dart';
-import '../../../core/router/app_router.dart';
 
 class PersonPage extends StatefulWidget {
   const PersonPage({super.key});
@@ -51,7 +51,7 @@ class _PersonPageState extends State<PersonPage> {
                     child: isRegistered
                         ? const PersonMemberHeaderWidget()
                         : PersonGuestHeaderWidget(
-                            onLoginTap: ()  => context.push(AppRoutes.auth),
+                            onLoginTap: () => context.push(AppRoutes.auth),
                           ),
                   );
                 },
@@ -60,6 +60,8 @@ class _PersonPageState extends State<PersonPage> {
               const PersonMenuListWidget(),
               const SizedBox(height: 8),
               const PersonGridWidget(),
+              const SizedBox(height: 8),
+              const ProductPersonGridWidget(),
             ],
           ),
         ),

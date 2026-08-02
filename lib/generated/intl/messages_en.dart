@@ -112,6 +112,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "personReviews": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "personSettings": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
     "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
+    "productEmpty": MessageLookupByLibrary.simpleMessage("Harytlar tapylmady"),
+    "productLoadError": MessageLookupByLibrary.simpleMessage(
+      "Harytlar ýüklenip bilinmedi",
+    ),
     "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
     "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "schoolsLoadError": MessageLookupByLibrary.simpleMessage(

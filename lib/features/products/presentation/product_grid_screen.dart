@@ -11,14 +11,14 @@ import 'widgets/product_grid_empty_widget.dart';
 import 'widgets/product_grid_error_widget.dart';
 import 'widgets/product_mason_grid_item.dart';
 
-class ProductSearchScreen extends StatefulWidget {
-  const ProductSearchScreen({super.key});
+class ProductGridScreen extends StatefulWidget {
+  const ProductGridScreen({super.key});
 
   @override
-  State<ProductSearchScreen> createState() => _ProductSearchScreenState();
+  State<ProductGridScreen> createState() => _ProductGridScreenState();
 }
 
-class _ProductSearchScreenState extends State<ProductSearchScreen> {
+class _ProductGridScreenState extends State<ProductGridScreen> {
   late final ProductBloc _productBloc;
   final ScrollController _scrollController = ScrollController();
 

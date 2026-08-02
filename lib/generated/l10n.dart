@@ -668,6 +668,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Harytlar tapylmady`
+  String get productEmpty {
+    return Intl.message(
+      'Harytlar tapylmady',
+      name: 'productEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Harytlar ýüklenip bilinmedi`
+  String get productLoadError {
+    return Intl.message(
+      'Harytlar ýüklenip bilinmedi',
+      name: 'productLoadError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
