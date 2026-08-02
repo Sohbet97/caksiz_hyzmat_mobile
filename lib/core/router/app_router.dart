@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile/features/banners/model/banner_model.dart';
+import 'package:mobile/features/banners/presentation/banner_detail_screen.dart';
 import 'package:mobile/features/brands/presentation/brands_screen.dart';
 import 'package:mobile/features/category/models/category_model.dart';
 import 'package:mobile/features/category/presentation/category_detail_screen.dart';
@@ -26,6 +28,7 @@ abstract class AppRoutes {
   static const favorites = '/favorites';
   static const reviews = '/reviews';
   static const orders = '/orders';
+  static const bannerDetail = '/bannerDetail';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -97,6 +100,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.orders,
       builder: (context, state) => const OrdersScreen(),
+    ),
+    // banner detail screen
+    GoRoute(
+      path: AppRoutes.bannerDetail,
+      builder: (context, state) {
+        final banner = state.extra as BannerModel;
+        return BannerDetailScreen(banner: banner);
+      },
     ),
   ],
 );

@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mobile/features/banners/bloc/banner_bloc.dart';
+import 'package:mobile/features/banners/data/banners_repository.dart';
 import 'package:mobile/features/brands/bloc/brand_bloc.dart';
 import 'package:mobile/features/brands/data/brands_repository.dart';
 import 'package:mobile/features/category/bloc/category_bloc.dart';
@@ -96,6 +98,10 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               ReviewRepository(dio: apiClient.dio, storage: settingsStorage),
         ),
+        // banners
+        RepositoryProvider(
+          create: (context) => BannersRepository(dio: apiClient.dio),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -138,6 +144,12 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 ReviewsBloc(reviewRepository: context.read<ReviewRepository>()),
+          ),
+          // banners bloc
+          BlocProvider(
+            create: (context) => BannerBloc(
+              bannersRepository: context.read<BannersRepository>(),
+            ),
           ),
         ],
         child: BlocBuilder<MainBloc, MainState>(
