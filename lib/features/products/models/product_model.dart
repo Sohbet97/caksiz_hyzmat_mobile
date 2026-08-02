@@ -1,6 +1,26 @@
+import 'dart:ui' show Locale;
+
 import 'package:mobile/core/utils/models/media_model.dart';
 import 'package:mobile/features/brands/model/brand_model.dart';
 import 'package:mobile/features/products/models/currency_model.dart';
+
+double _parseDouble(dynamic value) {
+  if (value == null) return 0;
+  if (value is num) return value.toDouble();
+  return double.tryParse(value.toString()) ?? 0;
+}
+
+double? _parseNullableDouble(dynamic value) {
+  if (value == null) return null;
+  if (value is num) return value.toDouble();
+  return double.tryParse(value.toString());
+}
+
+int? _parseNullableInt(dynamic value) {
+  if (value == null) return null;
+  if (value is int) return value;
+  return int.tryParse(value.toString());
+}
 
 class ProductModel {
   final int id;
@@ -25,7 +45,7 @@ class ProductModel {
   final String searchVector;
   final MediaDetailModel? tubnailModel;
   final BrandModel? brandModel;
-  final ProductCurrencyModel currencyModel;
+  final ProductCurrencyModel? currencyModel;
 
   ProductModel({
     required this.id,
@@ -54,7 +74,7 @@ class ProductModel {
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    id: json['id'] as int,
+    id: int.parse(json['id'].toString()),
     nameTm: json['name_tm'] ?? '',
     nameRu: json['name_ru'] ?? '',
     nameEn: json['name_en'] ?? '',
@@ -62,14 +82,14 @@ class ProductModel {
     descriptionRu: json['description_ru'] ?? '',
     descriptionEn: json['description_en'] ?? '',
     sku: json['sku'] ?? '',
-    mediaId: json['media_id'] as int?,
-    brandId: json['brand_id'] as int?,
-    costPrice: (json['cost_price'] as num? ?? 0).toDouble(),
-    salePrice: (json['sale_price'] as num? ?? 0).toDouble(),
-    weigthGrams: (json['weigth_grams'] as num?)?.toDouble(),
+    mediaId: _parseNullableInt(json['thumbnail_media_id']),
+    brandId: _parseNullableInt(json['brand_id']),
+    costPrice: _parseDouble(json['cost_price']),
+    salePrice: _parseDouble(json['sale_price']),
+    weigthGrams: _parseNullableDouble(json['weight_grams']),
     countView: json['count_view'] as int? ?? 0,
     countOrder: json['count_order'] as int? ?? 0,
-    rating: (json['rating'] as num? ?? 0).toDouble(),
+    rating: _parseDouble(json['rating']),
     isActive: json['is_active'] as bool? ?? true,
     createdAt: json['created_at'] != null
         ? DateTime.parse(json['created_at'].toString())
@@ -78,14 +98,28 @@ class ProductModel {
         ? DateTime.parse(json['updated_at'].toString())
         : null,
     searchVector: json['search_vector'] ?? '',
-    tubnailModel: json['media'] != null
-        ? MediaDetailModel.fromJson(json['media'] as Map<String, dynamic>)
+    tubnailModel: json['thumbnail_media'] != null
+        ? MediaDetailModel.fromJson(
+            json['thumbnail_media'] as Map<String, dynamic>,
+          )
         : null,
     brandModel: json['brand'] != null
         ? BrandModel.fromJson(json['brand'] as Map<String, dynamic>)
         : null,
-    currencyModel: ProductCurrencyModel.fromJson(
-      json['currency'] as Map<String, dynamic>,
-    ),
+    currencyModel: json['currency'] != null
+        ? ProductCurrencyModel.fromJson(
+            json['currency'] as Map<String, dynamic>,
+          )
+        : null,
   );
+}
+
+extension ProductLocalization on ProductModel {
+  String localizedName(Locale locale) {
+    return switch (locale.languageCode) {
+      'tm' => nameTm,
+      'en' => nameEn.isNotEmpty ? nameEn : nameRu,
+      _ => nameRu,
+    };
+  }
 }
