@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mobile/features/auth/bloc/auth_bloc.dart';
+import 'package:mobile/features/auth/data/auth_repository.dart';
 import 'package:mobile/features/banners/bloc/banner_bloc.dart';
 import 'package:mobile/features/banners/data/banners_repository.dart';
 import 'package:mobile/features/brands/bloc/brand_bloc.dart';
@@ -12,10 +14,10 @@ import 'package:mobile/features/favorite/bloc/favorite_bloc.dart';
 import 'package:mobile/features/favorite/data/favorite_repository.dart';
 import 'package:mobile/features/home/bloc/bottom_navigation_bloc.dart';
 import 'package:mobile/features/products/data/product_repository.dart';
-import 'package:mobile/features/reviews/bloc/reviews_bloc.dart';
-import 'package:mobile/features/reviews/data/review_repository.dart';
 import 'package:mobile/features/schools/bloc/schools_bloc.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
+import 'package:mobile/features/viewed_products/bloc/viewed_products_bloc.dart';
+import 'package:mobile/features/viewed_products/data/viewed_products_repository.dart';
 
 import 'core/bloc/main_bloc.dart';
 import 'core/network/api_client.dart';
@@ -33,11 +35,12 @@ void main() async {
 
   final settingsStorage = SettingsStorage();
   final apiClient = ApiClient(settingsStorage: settingsStorage);
+  await apiClient.ensureValidSession();
 
   final pushNotificationService = PushNotificationService(
     onToken: apiClient.registerPushToken,
   );
-try {
+  try {
     await pushNotificationService.initialize();
   } catch (e, stackTrace) {
     debugPrint('Push notification başlatma hatası: $e');
@@ -101,10 +104,12 @@ class MyApp extends StatelessWidget {
               FavoriteRepository(dio: apiClient.dio, storage: settingsStorage),
         ),
 
-        // review
+        // viewed products
         RepositoryProvider(
-          create: (context) =>
-              ReviewRepository(dio: apiClient.dio, storage: settingsStorage),
+          create: (context) => ViewedProductsRepository(
+            dio: apiClient.dio,
+            storage: settingsStorage,
+          ),
         ),
         // banners
         RepositoryProvider(
@@ -114,6 +119,12 @@ class MyApp extends StatelessWidget {
         // products
         RepositoryProvider(
           create: (context) => ProductRepository(dio: apiClient.dio),
+        ),
+
+        // auth
+        RepositoryProvider(
+          create: (context) =>
+              AuthRepository(dio: apiClient.dio, storage: settingsStorage),
         ),
       ],
       child: MultiBlocProvider(
@@ -153,16 +164,27 @@ class MyApp extends StatelessWidget {
             )..add(const LoadFavorites()),
           ),
 
-          // review bloc
+          // viewed products bloc
           BlocProvider(
-            create: (context) =>
-                ReviewsBloc(reviewRepository: context.read<ReviewRepository>()),
+            create: (context) => ViewedProductsBloc(
+              viewedProductsRepository: context
+                  .read<ViewedProductsRepository>(),
+              productRepository: context.read<ProductRepository>(),
+            ),
           ),
           // banners bloc
           BlocProvider(
             create: (context) => BannerBloc(
               bannersRepository: context.read<BannersRepository>(),
             ),
+          ),
+
+          // auth bloc
+          BlocProvider(
+            create: (context) => AuthBloc(
+              authRepository: context.read<AuthRepository>(),
+              storage: context.read<SettingsStorage>(),
+            )..add(const CheckAuthStatusRequested()),
           ),
         ],
         child: BlocBuilder<MainBloc, MainState>(

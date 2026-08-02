@@ -153,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsTitle": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
     "skidki": MessageLookupByLibrary.simpleMessage("Arzalnaşyklar"),
     "top_products": MessageLookupByLibrary.simpleMessage("Top harytlar"),
+    "welcome": MessageLookupByLibrary.simpleMessage("Hoş geldiňiz "),
     "ynam_sizden": MessageLookupByLibrary.simpleMessage("Ynam Sizden"),
   };
 }

@@ -9,6 +9,8 @@ class SettingsStorage {
   static const _authToken = 'authToken';
   static const _registrationStatus = 'registrationStatus';
   static const _userId = 'userId';
+  static const _viewedProductIds = 'viewedProductIds';
+  static const _maxViewedProducts = 50;
 
   Future<ThemeMode> readThemeMode() async {
     final prefs = await SharedPreferences.getInstance();
@@ -83,5 +85,28 @@ class SettingsStorage {
   Future<void> writeUserId(int id) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt(_userId, id);
+  }
+
+  /// Отсортировано от последнего просмотренного к самому старому.
+  Future<List<int>> readViewedProductIds() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getStringList(_viewedProductIds) ?? [];
+    return raw.map(int.parse).toList();
+  }
+
+  Future<void> addViewedProductId(int id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final ids = (prefs.getStringList(_viewedProductIds) ?? [])
+        .map(int.parse)
+        .toList();
+    ids.remove(id);
+    ids.insert(0, id);
+    if (ids.length > _maxViewedProducts) {
+      ids.removeRange(_maxViewedProducts, ids.length);
+    }
+    await prefs.setStringList(
+      _viewedProductIds,
+      ids.map((e) => e.toString()).toList(),
+    );
   }
 }

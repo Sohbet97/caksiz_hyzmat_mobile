@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:mobile/core/network/interceptors/interceptors.dart';
 import 'package:mobile/core/storage/settings_storage.dart';
@@ -44,7 +46,7 @@ class ApiClient {
           }
 
           final isRefreshCall = response.requestOptions.path.contains(
-            '/auth/refresh',
+            'auth/refresh',
           );
           final alreadyRetried =
               response.requestOptions.extra['retried'] == true;
@@ -78,6 +80,37 @@ class ApiClient {
     );
   }
 
+  /// Вызывается один раз при старте приложения — если сохранённый access
+  /// token уже просрочен (например, приложение было закрыто дольше, чем
+  /// живёт токен), рефрешим его до того, как остальные блоки начнут
+  /// параллельно стучаться в защищённые эндпоинты.
+  Future<void> ensureValidSession() async {
+    final token = await settingsStorage.readAuthToken();
+    if (token == null || token.isEmpty || !_isTokenExpired(token)) return;
+    await _refreshSession();
+  }
+
+  bool _isTokenExpired(String token) {
+    try {
+      final parts = token.split('.');
+      if (parts.length != 3) return false;
+
+      var payload = parts[1].replaceAll('-', '+').replaceAll('_', '/');
+      payload += '=' * ((4 - payload.length % 4) % 4);
+      final json = jsonDecode(utf8.decode(base64Decode(payload)));
+      final exp = json['exp'] as int?;
+      if (exp == null) return false;
+
+      final expiresAt = DateTime.fromMillisecondsSinceEpoch(exp * 1000);
+      // Небольшой запас, чтобы не словить 401 сразу после проверки.
+      return DateTime.now().isAfter(
+        expiresAt.subtract(const Duration(seconds: 10)),
+      );
+    } catch (_) {
+      return false;
+    }
+  }
+
   Future<bool> _refreshSession() {
     return _refreshing ??= _doRefresh().whenComplete(() {
       _refreshing = null;
@@ -89,9 +122,8 @@ class ApiClient {
     if (refreshToken == null || refreshToken.isEmpty) return false;
 
     try {
-      final url = dio.options.baseUrl.replaceAll('/buyer', '');
       final response = await dio.post(
-        '$url/auth/refresh',
+        'auth/refresh',
         data: {'refreshToken': refreshToken},
       );
 

@@ -17,10 +17,7 @@ class FavoriteRepository {
     final userId = await storage.readUserId();
     final response = await dio.get(
       'favorites',
-      queryParameters: {
-        ...filterModel.toQueryParameters(),
-        'userId': ?userId,
-      },
+      queryParameters: {...filterModel.toQueryParameters(), 'userId': ?userId},
       cancelToken: cancelToken,
     );
 

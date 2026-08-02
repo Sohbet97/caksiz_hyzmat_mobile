@@ -8,11 +8,12 @@ import 'package:mobile/features/category/presentation/category_detail_screen.dar
 import 'package:mobile/features/favorite/presentation/favorites_screen.dart';
 import 'package:mobile/features/home/presentation/home_screen.dart';
 import 'package:mobile/features/orders/presentation/orders_screen.dart';
+import 'package:mobile/features/person/models/person_model.dart';
+import 'package:mobile/features/person/presentation/person_detail_screen.dart';
 import 'package:mobile/features/products/bloc/product_detail_bloc.dart';
 import 'package:mobile/features/products/data/product_repository.dart';
 import 'package:mobile/features/products/models/product_model.dart';
 import 'package:mobile/features/products/presentation/product_detail_screen.dart';
-import 'package:mobile/features/reviews/presentation/reviews_screen.dart';
 import 'package:mobile/features/schools/bloc/school_detail_bloc.dart';
 import 'package:mobile/features/schools/data/models/school_model.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
@@ -22,6 +23,8 @@ import 'package:mobile/features/products/presentation/product_search_screen.dart
 import 'package:mobile/features/splasch/presentation/splash_screen.dart';
 import 'package:mobile/features/settings/presentation/settings_page.dart';
 import 'package:mobile/features/auth/presentation/auth_page.dart';
+import 'package:mobile/core/storage/settings_storage.dart';
+import 'package:mobile/features/viewed_products/presentation/viewed_products_screen.dart';
 
 import '../widgets/placeholder_page_widget.dart';
 import '../../generated/l10n.dart';
@@ -46,9 +49,9 @@ abstract class AppRoutes {
   static const schoolDetails = '/schoolDetailScreen';
   static const productSearchScreen = '/productSearch';
   static const brandsScreen = '/brands';
-  static const reviews = '/reviews';
   static const bannerDetail = '/bannerDetail';
   static const productDetail = '/productDetailScreen';
+  static const personDetail = '/personDetailScreen';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -106,8 +109,7 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: AppRoutes.viewed,
-      builder: (context, state) =>
-          PlaceholderPageWidget(title: S.of(context).personHistory),
+      builder: (context, state) => const ViewedProductsScreen(),
     ),
     GoRoute(
       path: AppRoutes.addresses,
@@ -172,11 +174,6 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
-      path: AppRoutes.reviews,
-      builder: (context, state) => const ReviewsScreen(),
-    ),
-
-    GoRoute(
       path: AppRoutes.orders,
       builder: (context, state) => const OrdersScreen(),
     ),
@@ -197,9 +194,19 @@ final GoRouter appRouter = GoRouter(
         return BlocProvider(
           create: (context) => ProductDetailBloc(
             productRepository: context.read<ProductRepository>(),
+            storage: context.read<SettingsStorage>(),
           )..add(GetProductDetailEvent(productId: model.id)),
           child: ProductDetailScreen(model: model),
         );
+      },
+    ),
+
+    // person detail screen
+    GoRoute(
+      path: AppRoutes.personDetail,
+      builder: (context, state) {
+        final person = state.extra as PersonModel;
+        return PersonDetailScreen(person: person);
       },
     ),
   ],

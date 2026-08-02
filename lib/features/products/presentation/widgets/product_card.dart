@@ -94,17 +94,11 @@ class ProductCardWidget extends StatelessWidget {
                   Positioned(
                     top: 4,
                     right: 4,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.85),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: SizedBox(
-                          width: 30,
-                          height: 30,
-                          child: FavoriteIconWidget(productModel: product),
-                        ),
+                    child: Center(
+                      child: SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: FavoriteIconWidget(productModel: product),
                       ),
                     ),
                   ),
