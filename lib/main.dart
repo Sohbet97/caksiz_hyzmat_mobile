@@ -19,6 +19,7 @@ import 'package:mobile/features/schools/data/repositories/schools_repository.dar
 
 import 'core/bloc/main_bloc.dart';
 import 'core/network/api_client.dart';
+import 'core/network/interceptors/interceptors.dart';
 import 'core/router/app_router.dart';
 import 'core/services/push_notification_service.dart';
 import 'core/storage/settings_storage.dart';
@@ -167,6 +168,7 @@ class MyApp extends StatelessWidget {
         child: BlocBuilder<MainBloc, MainState>(
           builder: (context, state) {
             return MaterialApp.router(
+              scaffoldMessengerKey: scaffoldMessengerKey,
               debugShowCheckedModeBanner: false,
               theme: AppTheme.light,
               darkTheme: AppTheme.dark,

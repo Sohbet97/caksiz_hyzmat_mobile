@@ -8,6 +8,10 @@ import 'package:mobile/features/category/presentation/category_detail_screen.dar
 import 'package:mobile/features/favorite/presentation/favorites_screen.dart';
 import 'package:mobile/features/home/presentation/home_screen.dart';
 import 'package:mobile/features/orders/presentation/orders_screen.dart';
+import 'package:mobile/features/products/bloc/product_detail_bloc.dart';
+import 'package:mobile/features/products/data/product_repository.dart';
+import 'package:mobile/features/products/models/product_model.dart';
+import 'package:mobile/features/products/presentation/product_detail_screen.dart';
 import 'package:mobile/features/reviews/presentation/reviews_screen.dart';
 import 'package:mobile/features/schools/bloc/school_detail_bloc.dart';
 import 'package:mobile/features/schools/data/models/school_model.dart';
@@ -44,6 +48,7 @@ abstract class AppRoutes {
   static const brandsScreen = '/brands';
   static const reviews = '/reviews';
   static const bannerDetail = '/bannerDetail';
+  static const productDetail = '/productDetailScreen';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -181,6 +186,20 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) {
         final banner = state.extra as BannerModel;
         return BannerDetailScreen(banner: banner);
+      },
+    ),
+
+    // product detail screen
+    GoRoute(
+      path: AppRoutes.productDetail,
+      builder: (context, state) {
+        final model = state.extra as ProductModel;
+        return BlocProvider(
+          create: (context) => ProductDetailBloc(
+            productRepository: context.read<ProductRepository>(),
+          )..add(GetProductDetailEvent(productId: model.id)),
+          child: ProductDetailScreen(model: model),
+        );
       },
     ),
   ],
