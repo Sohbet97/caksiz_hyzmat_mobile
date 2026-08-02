@@ -6,6 +6,7 @@ class ApiClient {
   final Dio dio;
   final SettingsStorage settingsStorage;
   static String baseUrl = 'https://caksizhyzmat.com/api/';
+  // static String baseUrl = 'http://192.168.1.106:3000/api/';
 
   Future<bool>? _refreshing;
 
@@ -119,6 +120,10 @@ class ApiClient {
 
   // TODO: заменить путь и тело запроса на реальный контракт бэкенда.
   Future<void> registerPushToken(String token) async {
-    await dio.post('/push-tokens', data: {'token': token});
+    try {
+      await dio.post('/push-tokens', data: {'token': token});
+    } catch (e) {
+      print(e);
+    }
   }
 }

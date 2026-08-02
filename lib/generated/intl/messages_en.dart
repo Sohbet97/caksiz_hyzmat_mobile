@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "AppName": MessageLookupByLibrary.simpleMessage("Çäksiz Hyzmat"),
+    "aksiyalar": MessageLookupByLibrary.simpleMessage("Aksiýalar"),
+    "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
     "authAnd": MessageLookupByLibrary.simpleMessage("we"),
     "authEmailContinue": MessageLookupByLibrary.simpleMessage(
       "E-poçta bilen dowam et",
@@ -49,9 +52,38 @@ class MessageLookup extends MessageLookupByLibrary {
     "authTroubleLogin": MessageLookupByLibrary.simpleMessage(
       "Içeri girmekde kynçylyk çekýärsiňizmi?",
     ),
+    "brands": MessageLookupByLibrary.simpleMessage("Brendler"),
+    "cargo": MessageLookupByLibrary.simpleMessage("Kargo"),
+    "categoriesEmpty": MessageLookupByLibrary.simpleMessage(
+      "Kategoriýalar ýok",
+    ),
     "category": MessageLookupByLibrary.simpleMessage("Kategoriýa"),
+    "categoryEmptyDesc": MessageLookupByLibrary.simpleMessage(
+      "Похоже, здесь пока пусто. Попробуйте обновить страницу позже",
+    ),
+    "errorSchool": MessageLookupByLibrary.simpleMessage("Что-то пошло не так"),
+    "favorites": MessageLookupByLibrary.simpleMessage("Halanlarym"),
+    "gunun_arzanlasygy": MessageLookupByLibrary.simpleMessage(
+      "Günüň arzanlaşygy",
+    ),
     "home": MessageLookupByLibrary.simpleMessage("Esasy"),
     "korzina": MessageLookupByLibrary.simpleMessage("Sebet"),
+    "maslahat_berilyanler": MessageLookupByLibrary.simpleMessage(
+      "Maslahat berilýänler",
+    ),
+    "mugt_dostawkalar": MessageLookupByLibrary.simpleMessage(
+      "Mugt dostawkalar",
+    ),
+    "nasazlyk_yuze_cykdy": MessageLookupByLibrary.simpleMessage(
+      "Näsazlyk ýüze çykdy",
+    ),
+    "netije_bizden": MessageLookupByLibrary.simpleMessage("Netije Bizden"),
+    "new_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
+    "news_added": MessageLookupByLibrary.simpleMessage("Täze goşulanlar"),
+    "noSchoolsFound": MessageLookupByLibrary.simpleMessage("Okuwlar tapylmady"),
+    "noSchoolsFoundDEsc": MessageLookupByLibrary.simpleMessage(
+      "Häzirki wagta ulgama goşulan okuwlar tapylmady",
+    ),
     "person": MessageLookupByLibrary.simpleMessage("Profil"),
     "personAddresses": MessageLookupByLibrary.simpleMessage("Salgylar"),
     "personBalance": MessageLookupByLibrary.simpleMessage("Kuponlarym"),
@@ -80,6 +112,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "personReviews": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "personSettings": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
     "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
+    "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
+    "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
+    "schoolsLoadError": MessageLookupByLibrary.simpleMessage(
+      "Не удалось загрузить учебные заведения",
+    ),
+    "search": MessageLookupByLibrary.simpleMessage("Haryt gözleg"),
+    "searchSchoolsHint": MessageLookupByLibrary.simpleMessage(
+      "Okuwlardan gözleg...",
+    ),
     "settingsAboutApp": MessageLookupByLibrary.simpleMessage(
       "Bu programma barada",
     ),
@@ -110,5 +151,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Bu programmany paýlaş",
     ),
     "settingsTitle": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
+    "skidki": MessageLookupByLibrary.simpleMessage("Arzalnaşyklar"),
+    "top_products": MessageLookupByLibrary.simpleMessage("Top harytlar"),
+    "ynam_sizden": MessageLookupByLibrary.simpleMessage("Ynam Sizden"),
   };
 }

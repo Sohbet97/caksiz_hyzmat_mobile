@@ -463,6 +463,211 @@ class S {
       args: [],
     );
   }
+
+  /// `Kategoriýalar ýok`
+  String get categoriesEmpty {
+    return Intl.message(
+      'Kategoriýalar ýok',
+      name: 'categoriesEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Похоже, здесь пока пусто. Попробуйте обновить страницу позже`
+  String get categoryEmptyDesc {
+    return Intl.message(
+      'Похоже, здесь пока пусто. Попробуйте обновить страницу позже',
+      name: 'categoryEmptyDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Täzelemek`
+  String get retry {
+    return Intl.message('Täzelemek', name: 'retry', desc: '', args: []);
+  }
+
+  /// `Çäksiz Hyzmat`
+  String get AppName {
+    return Intl.message('Çäksiz Hyzmat', name: 'AppName', desc: '', args: []);
+  }
+
+  /// `Ynam Sizden`
+  String get ynam_sizden {
+    return Intl.message('Ynam Sizden', name: 'ynam_sizden', desc: '', args: []);
+  }
+
+  /// `Netije Bizden`
+  String get netije_bizden {
+    return Intl.message(
+      'Netije Bizden',
+      name: 'netije_bizden',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okuwlar`
+  String get schools {
+    return Intl.message('Okuwlar', name: 'schools', desc: '', args: []);
+  }
+
+  /// `Okuwlardan gözleg...`
+  String get searchSchoolsHint {
+    return Intl.message(
+      'Okuwlardan gözleg...',
+      name: 'searchSchoolsHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Не удалось загрузить учебные заведения`
+  String get schoolsLoadError {
+    return Intl.message(
+      'Не удалось загрузить учебные заведения',
+      name: 'schoolsLoadError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okuwlar tapylmady`
+  String get noSchoolsFound {
+    return Intl.message(
+      'Okuwlar tapylmady',
+      name: 'noSchoolsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Häzirki wagta ulgama goşulan okuwlar tapylmady`
+  String get noSchoolsFoundDEsc {
+    return Intl.message(
+      'Häzirki wagta ulgama goşulan okuwlar tapylmady',
+      name: 'noSchoolsFoundDEsc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Что-то пошло не так`
+  String get errorSchool {
+    return Intl.message(
+      'Что-то пошло не так',
+      name: 'errorSchool',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ählisi`
+  String get all {
+    return Intl.message('Ählisi', name: 'all', desc: '', args: []);
+  }
+
+  /// `Haryt gözleg`
+  String get search {
+    return Intl.message('Haryt gözleg', name: 'search', desc: '', args: []);
+  }
+
+  /// `Arzalnaşyklar`
+  String get skidki {
+    return Intl.message('Arzalnaşyklar', name: 'skidki', desc: '', args: []);
+  }
+
+  /// `Täze goşulanlar`
+  String get news_added {
+    return Intl.message(
+      'Täze goşulanlar',
+      name: 'news_added',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mugt dostawkalar`
+  String get mugt_dostawkalar {
+    return Intl.message(
+      'Mugt dostawkalar',
+      name: 'mugt_dostawkalar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Günüň arzanlaşygy`
+  String get gunun_arzanlasygy {
+    return Intl.message(
+      'Günüň arzanlaşygy',
+      name: 'gunun_arzanlasygy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kargo`
+  String get cargo {
+    return Intl.message('Kargo', name: 'cargo', desc: '', args: []);
+  }
+
+  /// `Brendler`
+  String get brands {
+    return Intl.message('Brendler', name: 'brands', desc: '', args: []);
+  }
+
+  /// `Top harytlar`
+  String get top_products {
+    return Intl.message(
+      'Top harytlar',
+      name: 'top_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aksiýalar`
+  String get aksiyalar {
+    return Intl.message('Aksiýalar', name: 'aksiyalar', desc: '', args: []);
+  }
+
+  /// `Täze goşulanlar`
+  String get new_added {
+    return Intl.message(
+      'Täze goşulanlar',
+      name: 'new_added',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maslahat berilýänler`
+  String get maslahat_berilyanler {
+    return Intl.message(
+      'Maslahat berilýänler',
+      name: 'maslahat_berilyanler',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlarym`
+  String get favorites {
+    return Intl.message('Halanlarym', name: 'favorites', desc: '', args: []);
+  }
+
+  /// `Näsazlyk ýüze çykdy`
+  String get nasazlyk_yuze_cykdy {
+    return Intl.message(
+      'Näsazlyk ýüze çykdy',
+      name: 'nasazlyk_yuze_cykdy',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

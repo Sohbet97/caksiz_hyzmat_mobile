@@ -2,6 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mobile/features/brands/bloc/brand_bloc.dart';
+import 'package:mobile/features/brands/data/brands_repository.dart';
+import 'package:mobile/features/category/bloc/category_bloc.dart';
+import 'package:mobile/features/category/data/category_repository.dart';
 import 'package:mobile/features/home/bloc/bottom_navigation_bloc.dart';
 import 'package:mobile/features/schools/bloc/schools_bloc.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
@@ -72,6 +76,16 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => SchoolsRepository(dio: apiClient.dio),
         ),
+
+        // category
+        RepositoryProvider(
+          create: (context) => CategoryRepository(dio: apiClient.dio),
+        ),
+
+        // brands
+        RepositoryProvider(
+          create: (context) => BrandsRepository(dio: apiClient.dio),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -89,6 +103,19 @@ class MyApp extends StatelessWidget {
 
           // bottom navigation visible / invisible
           BlocProvider(create: (context) => BottomNavigationBloc()),
+
+          // category bloc
+          BlocProvider(
+            create: (context) => CategoryBloc(
+              categoryRepository: context.read<CategoryRepository>(),
+            )..add(LoadCategoriesEvent()),
+          ),
+
+          // brands bloc
+          BlocProvider(
+            create: (context) =>
+                BrandBloc(brandsRepository: context.read<BrandsRepository>()),
+          ),
         ],
         child: BlocBuilder<MainBloc, MainState>(
           builder: (context, state) {
