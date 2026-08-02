@@ -12,10 +12,10 @@ import 'package:mobile/features/favorite/bloc/favorite_bloc.dart';
 import 'package:mobile/features/favorite/data/favorite_repository.dart';
 import 'package:mobile/features/home/bloc/bottom_navigation_bloc.dart';
 import 'package:mobile/features/products/data/product_repository.dart';
-import 'package:mobile/features/reviews/bloc/reviews_bloc.dart';
-import 'package:mobile/features/reviews/data/review_repository.dart';
 import 'package:mobile/features/schools/bloc/schools_bloc.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
+import 'package:mobile/features/viewed_products/bloc/viewed_products_bloc.dart';
+import 'package:mobile/features/viewed_products/data/viewed_products_repository.dart';
 
 import 'core/bloc/main_bloc.dart';
 import 'core/network/api_client.dart';
@@ -101,10 +101,12 @@ class MyApp extends StatelessWidget {
               FavoriteRepository(dio: apiClient.dio, storage: settingsStorage),
         ),
 
-        // review
+        // viewed products
         RepositoryProvider(
-          create: (context) =>
-              ReviewRepository(dio: apiClient.dio, storage: settingsStorage),
+          create: (context) => ViewedProductsRepository(
+            dio: apiClient.dio,
+            storage: settingsStorage,
+          ),
         ),
         // banners
         RepositoryProvider(
@@ -153,10 +155,12 @@ class MyApp extends StatelessWidget {
             )..add(const LoadFavorites()),
           ),
 
-          // review bloc
+          // viewed products bloc
           BlocProvider(
-            create: (context) =>
-                ReviewsBloc(reviewRepository: context.read<ReviewRepository>()),
+            create: (context) => ViewedProductsBloc(
+              viewedProductsRepository: context.read<ViewedProductsRepository>(),
+              productRepository: context.read<ProductRepository>(),
+            ),
           ),
           // banners bloc
           BlocProvider(

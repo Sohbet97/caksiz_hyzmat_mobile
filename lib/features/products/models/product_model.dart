@@ -3,6 +3,7 @@ import 'dart:ui' show Locale;
 import 'package:mobile/core/utils/models/media_model.dart';
 import 'package:mobile/features/brands/model/brand_model.dart';
 import 'package:mobile/features/products/models/currency_model.dart';
+import 'package:mobile/features/products/models/product_detail_model.dart';
 
 double _parseDouble(dynamic value) {
   if (value == null) return 0;
@@ -111,6 +112,32 @@ class ProductModel {
             json['currency'] as Map<String, dynamic>,
           )
         : null,
+  );
+
+  factory ProductModel.fromDetail(ProductDetailModel detail) => ProductModel(
+    id: detail.id,
+    nameTm: detail.nameTm,
+    nameRu: detail.nameRu,
+    nameEn: detail.nameEn,
+    descriptionTm: detail.descriptionTm,
+    descriptionRu: detail.descriptionRu,
+    descriptionEn: detail.descriptionEn,
+    sku: detail.sku,
+    mediaId: detail.thumbnailMediaId,
+    brandId: detail.brandId,
+    costPrice: detail.costPrice,
+    salePrice: detail.salePrice,
+    weigthGrams: detail.weigthGrams,
+    countView: detail.countView,
+    countOrder: detail.countOrder,
+    rating: detail.rating,
+    isActive: detail.isActive,
+    createdAt: detail.createdAt,
+    updatedAt: detail.updatedAt,
+    searchVector: detail.searchVector,
+    tubnailModel: detail.thumbnailMedia,
+    brandModel: detail.brand,
+    currencyModel: detail.currency,
   );
 }
 
