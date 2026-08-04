@@ -673,6 +673,111 @@ class S {
   String get welcome {
     return Intl.message('Hoş geldiňiz ', name: 'welcome', desc: '', args: []);
   }
+
+  /// `sany satyldy`
+  String get productSoldSuffix {
+    return Intl.message(
+      'sany satyldy',
+      name: 'productSoldSuffix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Diňe 1 görnüş elýeterli`
+  String get productOnlyOneOption {
+    return Intl.message(
+      'Diňe 1 görnüş elýeterli',
+      name: 'productOnlyOneOption',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Görnüşi saýlaň`
+  String get productSelectOption {
+    return Intl.message(
+      'Görnüşi saýlaň',
+      name: 'productSelectOption',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reňk`
+  String get productColor {
+    return Intl.message('Reňk', name: 'productColor', desc: '', args: []);
+  }
+
+  /// `Ölçeg`
+  String get productSize {
+    return Intl.message('Ölçeg', name: 'productSize', desc: '', args: []);
+  }
+
+  /// `Sebede goş`
+  String get productAddToCart {
+    return Intl.message(
+      'Sebede goş',
+      name: 'productAddToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Häzir al`
+  String get productBuyNow {
+    return Intl.message('Häzir al', name: 'productBuyNow', desc: '', args: []);
+  }
+
+  /// `Bu dükandan mugt kargo`
+  String get productShopFreeShippingTitle {
+    return Intl.message(
+      'Bu dükandan mugt kargo',
+      name: 'productShopFreeShippingTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Standart: MUGT. Iň çalt 2 günde eltip berilýär.`
+  String get productShopFreeShippingDesc {
+    return Intl.message(
+      'Standart: MUGT. Iň çalt 2 günde eltip berilýär.',
+      name: 'productShopFreeShippingDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Synlar`
+  String get productReviewsTitle {
+    return Intl.message(
+      'Synlar',
+      name: 'productReviewsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ähli synlar tassyklanan`
+  String get productReviewsVerified {
+    return Intl.message(
+      'Ähli synlar tassyklanan',
+      name: 'productReviewsVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Heniz syn ýok`
+  String get productReviewsEmpty {
+    return Intl.message(
+      'Heniz syn ýok',
+      name: 'productReviewsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

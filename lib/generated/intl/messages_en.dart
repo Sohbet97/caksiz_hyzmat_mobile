@@ -112,6 +112,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "personReviews": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "personSettings": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
     "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
+    "productAddToCart": MessageLookupByLibrary.simpleMessage("Sebede goş"),
+    "productBuyNow": MessageLookupByLibrary.simpleMessage("Häzir al"),
+    "productColor": MessageLookupByLibrary.simpleMessage("Reňk"),
+    "productOnlyOneOption": MessageLookupByLibrary.simpleMessage(
+      "Diňe 1 görnüş elýeterli",
+    ),
+    "productReviewsEmpty": MessageLookupByLibrary.simpleMessage(
+      "Heniz syn ýok",
+    ),
+    "productReviewsTitle": MessageLookupByLibrary.simpleMessage("Synlar"),
+    "productReviewsVerified": MessageLookupByLibrary.simpleMessage(
+      "Ähli synlar tassyklanan",
+    ),
+    "productSelectOption": MessageLookupByLibrary.simpleMessage(
+      "Görnüşi saýlaň",
+    ),
+    "productShopFreeShippingDesc": MessageLookupByLibrary.simpleMessage(
+      "Standart: MUGT. Iň çalt 2 günde eltip berilýär.",
+    ),
+    "productShopFreeShippingTitle": MessageLookupByLibrary.simpleMessage(
+      "Bu dükandan mugt kargo",
+    ),
+    "productSize": MessageLookupByLibrary.simpleMessage("Ölçeg"),
+    "productSoldSuffix": MessageLookupByLibrary.simpleMessage("sany satyldy"),
     "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
     "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "schoolsLoadError": MessageLookupByLibrary.simpleMessage(

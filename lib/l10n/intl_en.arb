@@ -74,5 +74,19 @@
     "maslahat_berilyanler": "Maslahat berilýänler",
     "favorites": "Halanlarym",
     "nasazlyk_yuze_cykdy": "Näsazlyk ýüze çykdy",
-    "welcome"   :   "Hoş geldiňiz "
+    "welcome"   :   "Hoş geldiňiz ",
+
+    "productSoldSuffix": "sany satyldy",
+    "productOnlyOneOption": "Diňe 1 görnüş elýeterli",
+    "productSelectOption": "Görnüşi saýlaň",
+    "productColor": "Reňk",
+    "productSize": "Ölçeg",
+    "productAddToCart": "Sebede goş",
+    "productBuyNow": "Häzir al",
+    "productShopFreeShippingTitle": "Bu dükandan mugt kargo",
+    "productShopFreeShippingDesc": "Standart: MUGT. Iň çalt 2 günde eltip berilýär.",
+
+    "productReviewsTitle": "Synlar",
+    "productReviewsVerified": "Ähli synlar tassyklanan",
+    "productReviewsEmpty": "Heniz syn ýok"
 }

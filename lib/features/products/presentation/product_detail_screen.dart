@@ -1,13 +1,25 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile/core/bloc/main_bloc.dart';
-import 'package:mobile/features/favorite/presentation/widgets/favorite_icon.dart';
 import 'package:mobile/features/products/bloc/product_detail_bloc.dart';
 import 'package:mobile/features/products/models/product_detail_model.dart';
 import 'package:mobile/features/products/models/product_model.dart';
 
+import '../../../core/theme/app_colors.dart';
 import '../../../generated/l10n.dart';
+import 'widgets/product_detail_bottom_bar_widget.dart';
+import 'widgets/product_detail_gallery_widget.dart';
+import 'widgets/product_detail_price_widget.dart';
+import 'widgets/product_detail_shipping_widget.dart';
+import 'widgets/product_detail_variant_widget.dart';
+import 'widgets/product_detail_trust_widget.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../core/router/app_router.dart';
+import 'widgets/product_quantity_sheet_widget.dart';
+import '../../../core/network/api_client.dart';
+import 'widgets/product_detail_comments_widget.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key, required this.model});
@@ -15,12 +27,15 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<AppColors>()!;
     final localization = S.of(context);
 
     return Scaffold(
+      backgroundColor: colors.background,
       body: BlocBuilder<ProductDetailBloc, ProductDetailState>(
         builder: (context, state) {
-          if (state is ProductDetailInitial || state is GetProductDetailProgress) {
+          if (state is ProductDetailInitial ||
+              state is GetProductDetailProgress) {
             return const Center(child: CircularProgressIndicator());
           }
 
@@ -33,7 +48,7 @@ class ProductDetailScreen extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.error_outline,
-                      color: Theme.of(context).colorScheme.error,
+                      color: colors.error,
                       size: 32,
                     ),
                     const SizedBox(height: 8),
@@ -41,8 +56,8 @@ class ProductDetailScreen extends StatelessWidget {
                     const SizedBox(height: 8),
                     ElevatedButton(
                       onPressed: () => context.read<ProductDetailBloc>().add(
-                        GetProductDetailEvent(productId: model.id),
-                      ),
+                            GetProductDetailEvent(productId: model.id),
+                          ),
                       child: Text(localization.retry),
                     ),
                   ],
@@ -59,185 +74,100 @@ class ProductDetailScreen extends StatelessWidget {
   }
 }
 
-class _ProductDetailBody extends StatefulWidget {
+class _ProductDetailBody extends StatelessWidget {
   const _ProductDetailBody({required this.detail});
+
   final ProductDetailModel detail;
 
   @override
-  State<_ProductDetailBody> createState() => _ProductDetailBodyState();
-}
-
-class _ProductDetailBodyState extends State<_ProductDetailBody> {
-  final _galleryController = PageController();
-  int _galleryIndex = 0;
-
-  @override
-  void dispose() {
-    _galleryController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
-    final detail = widget.detail;
     final locale = context.select((MainBloc bloc) => bloc.state.locale);
     final name = detail.localizedName(locale);
     final description = detail.localizedDescription(locale);
-    final hasDiscount = detail.costPrice > detail.salePrice;
 
     final images = detail.gallery.isNotEmpty
-        ? detail.gallery.map((g) => g.media?.fullUrl).whereType<String>().toList()
-        : [if (detail.thumbnailMedia?.fullUrl != null) detail.thumbnailMedia!.fullUrl];
+        ? detail.gallery
+            .map((g) => g.media?.fullUrl)
+            .whereType<String>()
+            .toList()
+        : [
+            if (detail.thumbnailMedia?.fullUrl != null)
+              detail.thumbnailMedia!.fullUrl,
+          ];
 
-    return CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          pinned: true,
-          expandedHeight: 320,
-          flexibleSpace: FlexibleSpaceBar(
-            background: images.isEmpty
-                ? Container(color: colors.surfaceContainerHighest)
-                : Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      PageView.builder(
-                        controller: _galleryController,
-                        itemCount: images.length,
-                        onPageChanged: (index) =>
-                            setState(() => _galleryIndex = index),
-                        itemBuilder: (context, index) => CachedNetworkImage(
-                          imageUrl: images[index],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      if (images.length > 1)
-                        Positioned(
-                          bottom: 12,
-                          left: 0,
-                          right: 0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(images.length, (index) {
-                              final isActive = index == _galleryIndex;
-                              return AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                margin: const EdgeInsets.symmetric(
-                                  horizontal: 3,
-                                ),
-                                width: isActive ? 18 : 6,
-                                height: 6,
-                                decoration: BoxDecoration(
-                                  color: isActive
-                                      ? Colors.white
-                                      : Colors.white.withValues(alpha: 0.5),
-                                  borderRadius: BorderRadius.circular(3),
-                                ),
-                              );
-                            }),
-                          ),
-                        ),
-                    ],
-                  ),
-          ),
-        ),
-        SliverPadding(
-          padding: const EdgeInsets.all(16),
-          sliver: SliverToBoxAdapter(
+    return Column(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        name,
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w700,
-                        ),
+              ProductDetailGalleryWidget(
+                  images: images,
+                  onSharePressed: () {
+                    SharePlus.instance.share(
+                      ShareParams(
+                        text:
+                            '$name\n${detail.salePrice.toStringAsFixed(2)} ${detail.currency?.code ?? ''}',
                       ),
-                    ),
-                    FavoriteIconWidget(
-                      productModel: ProductModel.fromDetail(detail),
-                    ),
-                  ],
+                    );
+                  },
                 ),
-                const SizedBox(height: 8),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: [
-                    Text(
-                      '${detail.salePrice.toStringAsFixed(0)} ${detail.currency?.code ?? ''}',
-                      style: theme.textTheme.headlineSmall?.copyWith(
-                        color: colors.error,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    if (hasDiscount) ...[
-                      const SizedBox(width: 8),
-                      Text(
-                        detail.costPrice.toStringAsFixed(0),
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: colors.onSurfaceVariant,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                    ],
-                  ],
+                ProductDetailPriceWidget(
+                  name: name,
+                  brandName: detail.brand?.name,
+                  salePrice: detail.salePrice,
+                  costPrice: detail.costPrice,
+                  currencyCode: detail.currency?.code ?? '',
+                  rating: detail.rating,
+                  soldCount: detail.countOrder,
                 ),
-                if (detail.brand != null) ...[
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.storefront_outlined,
-                        size: 16,
-                        color: colors.onSurfaceVariant,
-                      ),
-                      const SizedBox(width: 6),
-                      Text(
-                        detail.brand!.name,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: colors.onSurfaceVariant,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
                 if (detail.variations.isNotEmpty) ...[
-                  const SizedBox(height: 16),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: detail.variations
-                        .where((v) => v.color != null)
-                        .map(
-                          (v) => Container(
-                            width: 28,
-                            height: 28,
-                            decoration: BoxDecoration(
-                              color: v.color!.swatch,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: colors.outlineVariant),
-                            ),
-                          ),
-                        )
-                        .toList(),
+                  ProductDetailVariantWidget(variations: detail.variations),
+                  const SizedBox(height: 8),
+                ],
+               Divider(height: 1, color: Theme.of(context).dividerColor),
+                const ProductDetailShippingWidget(),
+                const ProductDetailTrustWidget(),
+               if (description.isNotEmpty) ...[
+                  Divider(height: 1, color: Theme.of(context).dividerColor),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      description,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(height: 1.5),
+                    ),
                   ),
                 ],
-                if (description.isNotEmpty) ...[
-                  const SizedBox(height: 20),
-                  Text(
-                    description,
-                    style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
-                  ),
-                ],
+                Divider(height: 1, color: Theme.of(context).dividerColor),
+                ProductDetailCommentsWidget(
+                  productId: detail.id,
+                  rating: detail.rating,
+                  reviewCount: detail.countOrder,
+                  apiClient: context.read<ApiClient>(),
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
+        ),
+        ProductDetailBottomBarWidget(
+          onAddToCart: () {
+            showModalBottomSheet(
+              context: context,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              builder: (_) => ProductQuantitySheetWidget(
+                price: detail.salePrice,
+                currencyCode: detail.currency?.code ?? '',
+              ),
+            );
+          },
+          onBuyNow: () => context.push(AppRoutes.addAddress),
         ),
       ],
     );

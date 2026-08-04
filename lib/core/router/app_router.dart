@@ -25,6 +25,7 @@ import 'package:mobile/features/settings/presentation/settings_page.dart';
 import 'package:mobile/features/auth/presentation/auth_page.dart';
 import 'package:mobile/core/storage/settings_storage.dart';
 import 'package:mobile/features/viewed_products/presentation/viewed_products_screen.dart';
+import 'package:mobile/features/address/presentation/add_address_page.dart';
 
 import '../widgets/placeholder_page_widget.dart';
 import '../../generated/l10n.dart';
@@ -52,6 +53,7 @@ abstract class AppRoutes {
   static const bannerDetail = '/bannerDetail';
   static const productDetail = '/productDetailScreen';
   static const personDetail = '/personDetailScreen';
+  static const addAddress = '/add-address';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -209,5 +211,11 @@ final GoRouter appRouter = GoRouter(
         return PersonDetailScreen(person: person);
       },
     ),
+
+    GoRoute(
+      path: AppRoutes.addAddress,
+      builder: (context, state) => const AddAddressPage(),
+    ),
   ],
 );
+
