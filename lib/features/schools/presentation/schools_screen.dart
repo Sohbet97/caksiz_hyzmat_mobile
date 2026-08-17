@@ -6,7 +6,6 @@ import 'package:mobile/features/schools/bloc/schools_bloc.dart';
 import 'package:mobile/features/schools/data/models/school_model.dart';
 import 'package:mobile/features/schools/presentation/widgets/school_error_widget.dart';
 import 'package:mobile/features/schools/presentation/widgets/school_list_item.dart';
-import 'package:mobile/features/schools/presentation/widgets/schools_alphabet_sidebar_widget.dart';
 import 'package:mobile/features/schools/presentation/widgets/schools_empty_widget.dart';
 import 'package:mobile/features/schools/presentation/widgets/schools_header_widget.dart';
 import 'package:mobile/generated/l10n.dart';
@@ -160,39 +159,17 @@ class _SchoolsScreenState extends State<SchoolsScreen> {
                         ),
                         const SizedBox(height: 12),
                       ],
-                      _SectionLabel(text: localization.schoolsAllTitle),
+                     _SectionLabel(text: localization.schoolsAllTitle),
                       const SizedBox(height: 4),
-                      SchoolsAlphabetSidebarWidget(
-                        availableLetters: letters.toSet(),
-                        selectedLetter: _selectedLetter,
-                        onLetterTap: _onLetterTap,
-                        onAllTap: () => setState(() => _selectedLetter = null),
+                      ...sorted.map(
+                        (school) => SchoolListItem(
+                          school: school,
+                          onTap: () => context.go(
+                            AppRoutes.schoolDetails,
+                            extra: school,
+                          ),
+                        ),
                       ),
-                      const SizedBox(height: 8),
-                      for (final letter in visibleLetters) ...[
-                        Container(
-                          key: _sectionKeys[letter],
-                          padding: const EdgeInsets.fromLTRB(16, 10, 16, 4),
-                          child: Text(
-                            letter,
-                            style: TextStyle(
-                              color: colors.primary,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
-                        ),
-                        ...grouped[letter]!.map(
-                          (school) => SchoolListItem(
-                            school: school,
-                            onTap: () => context.go(
-                              AppRoutes.schoolDetails,
-                              extra: school,
-                            ),
-                          ),
-                        ),
-                      ],
                       if (!loaded.hasReachedMax)
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 16),
