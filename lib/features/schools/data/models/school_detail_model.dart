@@ -477,19 +477,22 @@ final class SchoolDetailModel extends Equatable {
 
 extension SchoolDetailLocalization on SchoolDetailModel {
   String localizedName(Locale locale) {
-    return switch (locale.languageCode) {
+    final value = switch (locale.languageCode) {
       'tm' => nameTm,
       'en' => nameEn ?? nameRu,
       _ => nameRu,
     };
+    return value.isNotEmpty ? value : nameTm;
   }
 
   String? localizedDescription(Locale locale) {
-    return switch (locale.languageCode) {
+    final value = switch (locale.languageCode) {
       'tm' => descriptionTm,
       'en' => descriptionEn ?? descriptionRu,
       _ => descriptionRu,
     };
+    if (value != null && value.isNotEmpty) return value;
+    return descriptionTm;
   }
 }
 

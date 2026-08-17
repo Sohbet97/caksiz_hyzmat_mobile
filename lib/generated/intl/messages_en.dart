@@ -113,6 +113,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "personSettings": MessageLookupByLibrary.simpleMessage("Sazlamalar"),
     "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
     "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
+    "schoolDetailAddress": MessageLookupByLibrary.simpleMessage("Salgy"),
+    "schoolDetailApplicants": MessageLookupByLibrary.simpleMessage(
+      "Arza berenler",
+    ),
+    "schoolDetailAskQuestion": MessageLookupByLibrary.simpleMessage(
+      "Sorag iber",
+    ),
+    "schoolDetailDocumentsRequired": MessageLookupByLibrary.simpleMessage(
+      "Talap edilýän resminamalar",
+    ),
+    "schoolDetailFaculties": MessageLookupByLibrary.simpleMessage(
+      "Fakultetler",
+    ),
+    "schoolDetailInfo": MessageLookupByLibrary.simpleMessage("Maglumatlar"),
+    "schoolDetailPhone": MessageLookupByLibrary.simpleMessage("Telefon"),
+    "schoolDetailReadLess": MessageLookupByLibrary.simpleMessage("Az görkez"),
+    "schoolDetailReadMore": MessageLookupByLibrary.simpleMessage(
+      "Has giňişleýin...",
+    ),
+    "schoolDetailSave": MessageLookupByLibrary.simpleMessage("Sakla"),
+    "schoolDetailSeeAll": MessageLookupByLibrary.simpleMessage("Ählisini gör"),
+    "schoolDetailWebsite": MessageLookupByLibrary.simpleMessage(
+      "Resmi web sahypasy",
+    ),
     "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
     "schoolsAllFilter": MessageLookupByLibrary.simpleMessage("Ähli"),
     "schoolsAllTitle": MessageLookupByLibrary.simpleMessage(

@@ -78,5 +78,17 @@
     "schoolsTitle": "Uniwersitet saýlaň",
     "schoolsFeaturedTitle": "Meşhur uniwersitetler",
     "schoolsAllTitle": "Ähli uniwersitetler",
-    "schoolsAllFilter": "Ähli"
+    "schoolsAllFilter": "Ähli",
+    "schoolDetailFaculties": "Fakultetler",
+    "schoolDetailSeeAll": "Ählisini gör",
+    "schoolDetailInfo": "Maglumatlar",
+    "schoolDetailAddress": "Salgy",
+    "schoolDetailWebsite": "Resmi web sahypasy",
+    "schoolDetailPhone": "Telefon",
+    "schoolDetailSave": "Sakla",
+    "schoolDetailAskQuestion": "Sorag iber",
+    "schoolDetailApplicants": "Arza berenler",
+    "schoolDetailDocumentsRequired": "Talap edilýän resminamalar",
+    "schoolDetailReadMore": "Has giňişleýin...",
+    "schoolDetailReadLess": "Az görkez"
 }

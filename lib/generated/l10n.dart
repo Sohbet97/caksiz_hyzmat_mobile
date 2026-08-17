@@ -708,6 +708,121 @@ class S {
   String get schoolsAllFilter {
     return Intl.message('Ähli', name: 'schoolsAllFilter', desc: '', args: []);
   }
+
+  /// `Fakultetler`
+  String get schoolDetailFaculties {
+    return Intl.message(
+      'Fakultetler',
+      name: 'schoolDetailFaculties',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ählisini gör`
+  String get schoolDetailSeeAll {
+    return Intl.message(
+      'Ählisini gör',
+      name: 'schoolDetailSeeAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maglumatlar`
+  String get schoolDetailInfo {
+    return Intl.message(
+      'Maglumatlar',
+      name: 'schoolDetailInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salgy`
+  String get schoolDetailAddress {
+    return Intl.message(
+      'Salgy',
+      name: 'schoolDetailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resmi web sahypasy`
+  String get schoolDetailWebsite {
+    return Intl.message(
+      'Resmi web sahypasy',
+      name: 'schoolDetailWebsite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Telefon`
+  String get schoolDetailPhone {
+    return Intl.message(
+      'Telefon',
+      name: 'schoolDetailPhone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sakla`
+  String get schoolDetailSave {
+    return Intl.message('Sakla', name: 'schoolDetailSave', desc: '', args: []);
+  }
+
+  /// `Sorag iber`
+  String get schoolDetailAskQuestion {
+    return Intl.message(
+      'Sorag iber',
+      name: 'schoolDetailAskQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arza berenler`
+  String get schoolDetailApplicants {
+    return Intl.message(
+      'Arza berenler',
+      name: 'schoolDetailApplicants',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Talap edilýän resminamalar`
+  String get schoolDetailDocumentsRequired {
+    return Intl.message(
+      'Talap edilýän resminamalar',
+      name: 'schoolDetailDocumentsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Has giňişleýin...`
+  String get schoolDetailReadMore {
+    return Intl.message(
+      'Has giňişleýin...',
+      name: 'schoolDetailReadMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Az görkez`
+  String get schoolDetailReadLess {
+    return Intl.message(
+      'Az görkez',
+      name: 'schoolDetailReadLess',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
