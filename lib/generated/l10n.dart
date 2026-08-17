@@ -673,6 +673,41 @@ class S {
   String get welcome {
     return Intl.message('Hoş geldiňiz ', name: 'welcome', desc: '', args: []);
   }
+
+  /// `Uniwersitet saýlaň`
+  String get schoolsTitle {
+    return Intl.message(
+      'Uniwersitet saýlaň',
+      name: 'schoolsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meşhur uniwersitetler`
+  String get schoolsFeaturedTitle {
+    return Intl.message(
+      'Meşhur uniwersitetler',
+      name: 'schoolsFeaturedTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ähli uniwersitetler`
+  String get schoolsAllTitle {
+    return Intl.message(
+      'Ähli uniwersitetler',
+      name: 'schoolsAllTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ähli`
+  String get schoolsAllFilter {
+    return Intl.message('Ähli', name: 'schoolsAllFilter', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

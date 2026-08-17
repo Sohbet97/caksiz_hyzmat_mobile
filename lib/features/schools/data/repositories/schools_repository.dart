@@ -42,7 +42,9 @@ class SchoolsRepository {
       }
       final data = SchoolDetailModel.fromJson(response.data['data']);
       return data;
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('loadSchoolDetail hakyky hata: $e');
+      print('$stackTrace');
       throw Exception('Okuw maglumatlary almakda näsazlyk');
     }
   }

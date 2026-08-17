@@ -3,6 +3,26 @@ import 'dart:ui' show Locale;
 import 'package:equatable/equatable.dart';
 import 'package:mobile/core/utils/models/media_model.dart';
 
+int _parseId(dynamic value) =>
+    value is String ? int.parse(value) : value as int;
+
+int? _parseIdOrNull(dynamic value) =>
+    value == null ? null : _parseId(value);
+   
+    String? _parseStringOrFirstOfList(dynamic value) {
+  if (value == null) return null;
+  if (value is String) return value;
+  if (value is List && value.isNotEmpty) return value.first.toString();
+  if (value is List) return null;
+  return value.toString();
+}
+
+double? _parseDoubleOrNull(dynamic value) {
+  if (value == null) return null;
+  if (value is num) return value.toDouble();
+  return double.tryParse(value.toString());
+}
+
 final class SchoolDetailCityModel extends Equatable {
   final int id;
   final String nameTm;
@@ -26,7 +46,7 @@ final class SchoolDetailCityModel extends Equatable {
 
   factory SchoolDetailCityModel.fromJson(Map<String, dynamic> json) {
     return SchoolDetailCityModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       nameTm: json['name_tm'] as String? ?? '',
       nameRu: json['name_ru'] as String? ?? '',
       nameEn: json['name_en'] as String?,
@@ -69,7 +89,7 @@ final class CurrencyModel extends Equatable {
 
   factory CurrencyModel.fromJson(Map<String, dynamic> json) {
     return CurrencyModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       name: json['name'] as String? ?? '',
       code: json['code'] as String? ?? '',
       isActive: json['is_active'] as bool? ?? true,
@@ -102,9 +122,9 @@ final class SchoolGalleryItemModel extends Equatable {
 
   factory SchoolGalleryItemModel.fromJson(Map<String, dynamic> json) {
     return SchoolGalleryItemModel(
-      id: json['id'] as int,
-      schoolId: json['school_id'] as int,
-      mediaId: json['media_id'] as int,
+      id: _parseId(json['id']),
+      schoolId: _parseId(json['school_id']),
+      mediaId: _parseId(json['media_id']),
       media: json['media'] != null
           ? MediaDetailModel.fromJson(json['media'] as Map<String, dynamic>)
           : null,
@@ -149,7 +169,7 @@ final class DocumentModel extends Equatable {
 
   factory DocumentModel.fromJson(Map<String, dynamic> json) {
     return DocumentModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       nameTm: json['name_tm'] as String? ?? '',
       nameRu: json['name_ru'] as String? ?? '',
       nameEn: json['name_en'] as String?,
@@ -192,9 +212,9 @@ final class SchoolDocumentRequirementModel extends Equatable {
 
   factory SchoolDocumentRequirementModel.fromJson(Map<String, dynamic> json) {
     return SchoolDocumentRequirementModel(
-      id: json['id'] as int,
-      schoolId: json['school_id'] as int,
-      documentId: json['document_id'] as int,
+      id: _parseId(json['id']),
+      schoolId: _parseId(json['school_id']),
+      documentId: _parseId(json['document_id']),
       document: json['document'] != null
           ? DocumentModel.fromJson(json['document'] as Map<String, dynamic>)
           : null,
@@ -233,11 +253,11 @@ final class KafedraModel extends Equatable {
 
   factory KafedraModel.fromJson(Map<String, dynamic> json) {
     return KafedraModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       nameTm: json['name_tm'] as String? ?? '',
       nameRu: json['name_ru'] as String? ?? '',
       nameEn: json['name_en'] as String?,
-      thumbnailMediaId: json['thumbnail_media_id'] as int?,
+      thumbnailMediaId: _parseIdOrNull(json['thumbnail_media_id']),
       thumbnailMedia: json['thumbnail_media'] != null
           ? MediaDetailModel.fromJson(
               json['thumbnail_media'] as Map<String, dynamic>,
@@ -292,14 +312,14 @@ final class SchoolKafedraModel extends Equatable {
 
   factory SchoolKafedraModel.fromJson(Map<String, dynamic> json) {
     return SchoolKafedraModel(
-      id: json['id'] as int,
-      schoolId: json['school_id'] as int,
-      kafedraId: json['kafedra_id'] as int,
+      id: _parseId(json['id']),
+      schoolId: _parseId(json['school_id']),
+      kafedraId: _parseId(json['kafedra_id']),
       kafedra: json['kafedra'] != null
           ? KafedraModel.fromJson(json['kafedra'] as Map<String, dynamic>)
           : null,
-      amount: json['amount'] as num? ?? 0,
-      currencyId: json['currency_id'] as int?,
+      amount: _parseDoubleOrNull(json['amount']) ?? 0,
+      currencyId: _parseIdOrNull(json['currency_id']),
       currency: json['currency'] != null
           ? CurrencyModel.fromJson(json['currency'] as Map<String, dynamic>)
           : null,
@@ -381,7 +401,7 @@ final class SchoolDetailModel extends Equatable {
 
   factory SchoolDetailModel.fromJson(Map<String, dynamic> json) {
     return SchoolDetailModel(
-      id: json['id'] as int,
+      id: _parseId(json['id']),
       nameTm: json['name_tm'] as String? ?? '',
       nameRu: json['name_ru'] as String? ?? '',
       nameEn: json['name_en'] as String?,
@@ -389,21 +409,21 @@ final class SchoolDetailModel extends Equatable {
       descriptionTm: json['description_tm'] as String?,
       descriptionRu: json['description_ru'] as String?,
       descriptionEn: json['description_en'] as String?,
-      thumbnailMediaId: json['thumbnail_media_id'] as int?,
+      thumbnailMediaId: _parseIdOrNull(json['thumbnail_media_id']),
       thumbnailMedia: json['thumbnail_media'] != null
           ? MediaDetailModel.fromJson(
               json['thumbnail_media'] as Map<String, dynamic>,
             )
           : null,
-      latitude: (json['latitude'] as num?)?.toDouble(),
-      longitude: (json['longitude'] as num?)?.toDouble(),
-      cityId: json['city_id'] as int?,
+      latitude: _parseDoubleOrNull(json['latitude']),
+      longitude: _parseDoubleOrNull(json['longitude']),
+      cityId: _parseIdOrNull(json['city_id']),
       city: json['city'] != null
           ? SchoolDetailCityModel.fromJson(json['city'] as Map<String, dynamic>)
           : null,
-      address: json['address'] as String?,
-      phone: json['phone'] as String?,
-      website: json['website'] as String?,
+      address: _parseStringOrFirstOfList(json['address']),
+      phone: _parseStringOrFirstOfList(json['phone']),
+      website: _parseStringOrFirstOfList(json['website']),
       isActive: json['is_active'] as bool? ?? true,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),

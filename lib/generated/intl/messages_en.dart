@@ -114,9 +114,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "personSupport": MessageLookupByLibrary.simpleMessage("Goldaw"),
     "retry": MessageLookupByLibrary.simpleMessage("Täzelemek"),
     "schools": MessageLookupByLibrary.simpleMessage("Okuwlar"),
+    "schoolsAllFilter": MessageLookupByLibrary.simpleMessage("Ähli"),
+    "schoolsAllTitle": MessageLookupByLibrary.simpleMessage(
+      "Ähli uniwersitetler",
+    ),
+    "schoolsFeaturedTitle": MessageLookupByLibrary.simpleMessage(
+      "Meşhur uniwersitetler",
+    ),
     "schoolsLoadError": MessageLookupByLibrary.simpleMessage(
       "Не удалось загрузить учебные заведения",
     ),
+    "schoolsTitle": MessageLookupByLibrary.simpleMessage("Uniwersitet saýlaň"),
     "search": MessageLookupByLibrary.simpleMessage("Haryt gözleg"),
     "searchSchoolsHint": MessageLookupByLibrary.simpleMessage(
       "Okuwlardan gözleg...",

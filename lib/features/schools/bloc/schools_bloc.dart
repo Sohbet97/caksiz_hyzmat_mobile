@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:mobile/features/schools/data/models/pagination.dart';
 import 'package:mobile/features/schools/data/models/school_model.dart';
 import 'package:mobile/features/schools/data/repositories/schools_repository.dart';
+import 'package:flutter/foundation.dart';
 
 part 'schools_event.dart';
 part 'schools_state.dart';
@@ -38,7 +39,9 @@ class SchoolsBloc extends Bloc<SchoolsEvent, SchoolsState> {
           cityId: event.cityId,
         ),
       );
-    } catch (_) {
+    } catch (e, stackTrace) {
+      debugPrint('SchoolsBloc hata: $e');
+      debugPrint('$stackTrace');
       emit(SchoolsError());
     }
   }

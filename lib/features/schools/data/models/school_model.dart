@@ -8,6 +8,20 @@ int _parseId(dynamic value) =>
 int? _parseIdOrNull(dynamic value) =>
     value == null ? null : _parseId(value);
 
+double? _parseDoubleOrNull(dynamic value) {
+  if (value == null) return null;
+  if (value is num) return value.toDouble();
+  return double.tryParse(value.toString());
+}
+
+String? _parseStringOrFirstOfList(dynamic value) {
+  if (value == null) return null;
+  if (value is String) return value;
+  if (value is List && value.isNotEmpty) return value.first.toString();
+  if (value is List) return null;
+  return value.toString();
+}
+
 enum SchoolMediaType {
   image,
   video,
@@ -136,15 +150,15 @@ final class SchoolModel extends Equatable {
               json['thumbnail_media'] as Map<String, dynamic>,
             )
           : null,
-      latitude: (json['latitude'] as num?)?.toDouble(),
-      longitude: (json['longitude'] as num?)?.toDouble(),
+      latitude: _parseDoubleOrNull(json['latitude']),
+      longitude: _parseDoubleOrNull(json['longitude']),
       cityId: _parseIdOrNull(json['city_id']),
       city: json['city'] != null
           ? SchoolCityModel.fromJson(json['city'] as Map<String, dynamic>)
           : null,
-      address: json['address'] as String?,
-      phone: json['phone'] as String?,
-      website: json['website'] as String?,
+      address: _parseStringOrFirstOfList(json['address']),
+      phone: _parseStringOrFirstOfList(json['phone']),
+      website: _parseStringOrFirstOfList(json['website']),
       isActive: json['is_active'] as bool? ?? true,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),

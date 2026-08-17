@@ -24,6 +24,7 @@ class SchoolDetailBloc extends Bloc<SchoolDetailEvent, SchoolDetailState> {
       final result = await schoolsRepository.loadSchoolDetail(event.schoolId);
       emit(GetSchoolDetailSuccess(schoolDetailModel: result));
     } catch (e) {
+      print('SchoolDetailBloc hata: $e');
       emit(GetSchoolDetailError(errorMessage: e.toString()));
     }
   }
